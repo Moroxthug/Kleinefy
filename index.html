@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Kleinefy</title>
-<meta name="description" content="Kleinefy is a Vancouver software studio. We design and build websites, apps, CRM and ERP systems and automations for construction and trade companies.">
-<meta property="og:title" content="Kleinefy — Software that runs your business">
-<meta property="og:description" content="Websites, apps, integrated CRM and ERP, and automation for construction and trade companies. Designed and built in Vancouver.">
+<meta name="description" content="Kleinefy is a Vancouver software studio. We design and build beautiful websites, automations, CRM and ERP systems and apps, and turn ideas into revenue-ready products.">
+<meta property="og:title" content="Kleinefy — We turn ideas into revenue">
+<meta property="og:description" content="Beautiful websites, automations, CRM, ERP and apps. From first sketch to software that earns. Vancouver, working worldwide.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://kleinefy.com/assets/quoteai-desktop.webp">
 <link rel="canonical" href="https://kleinefy.com/">
@@ -16,13 +16,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"ProfessionalService","@id":"https://kleinefy.com/#org","name":"Kleinefy Inc","url":"https://kleinefy.com/","email":"hello@kleinefy.com","address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"},"areaServed":["CA","US","IT"],"description":"Software studio building websites, apps, integrated CRM and ERP systems and automations for construction and trade companies.","knowsAbout":["Custom software development","Web development","Mobile app development","CRM","ERP","Business process automation","Construction technology"]},
+{"@type":"ProfessionalService","@id":"https://kleinefy.com/#org","name":"Kleinefy Inc","url":"https://kleinefy.com/","email":"hello@kleinefy.com","address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"},"areaServed":["CA","US","IT"],"description":"Software studio designing and building websites, automations, CRM and ERP systems and apps, taking ideas from sketch to revenue-ready products.","knowsAbout":["Custom software development","Web development","Mobile app development","CRM","ERP","Business process automation","Construction technology"]},
 {"@type":"WebSite","url":"https://kleinefy.com/","name":"Kleinefy","publisher":{"@id":"https://kleinefy.com/#org"}},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Do you build custom CRM and ERP systems for construction companies?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design and build one system around how your company quotes, schedules, buys and invoices, and we connect it to the tools you already use."}},
 {"@type":"Question","name":"Can you modernize our systems without stopping operations?","acceptedAnswer":{"@type":"Answer","text":"Yes. We replace spreadsheets, paper and old software one workflow at a time, running the new system beside the old one until your team is ready to switch."}},
 {"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"A website usually takes three to six weeks. A CRM or ERP system ships its first working version in eight to twelve weeks and grows from there."}},
-{"@type":"Question","name":"Do you only work with construction and trades?","acceptedAnswer":{"@type":"Answer","text":"Construction and trade companies are our focus, and our own products serve them. We also build for other industries when the fit is right."}}
+{"@type":"Question","name":"What kind of projects do you take on?","acceptedAnswer":{"@type":"Answer","text":"Websites, automations, CRM and ERP systems, mobile and web apps, and full products from idea to launch. We go deepest with companies that run on process, such as construction, trades and services."}}
 ]}]}
 </script>
 <style>
@@ -81,29 +81,41 @@ h1 em,h2 em,h3 em{font-family:var(--serif);font-style:italic;font-weight:400;let
 @media(max-width:860px){.nav ul{display:none}.nav .pill{padding-left:16px}.brand{margin-right:6px}}
 
 /* hero */
-.hero{padding-block:clamp(72px,10vw,140px) 0;text-align:center}
+.hero{padding-block:clamp(72px,9vw,120px) 0;text-align:center}
 .hero .kicker{font-size:14px;font-weight:500;color:var(--ink-2);letter-spacing:.01em}
-.hero h1{font-size:clamp(44px,7.4vw,104px);margin:22px auto 0;max-width:12em}
+.hero h1{font-size:clamp(42px,7vw,100px);margin:22px auto 0;max-width:13em}
 .hero .sub{margin:28px auto 0;text-align:center}
 .hero .actions{display:flex;justify-content:center;align-items:center;gap:26px;flex-wrap:wrap;margin-top:36px}
 .in{opacity:0;transform:translateY(22px);animation:in 1.1s var(--ease) forwards}
 .in:nth-child(2){animation-delay:.08s}.in:nth-child(3){animation-delay:.16s}.in:nth-child(4){animation-delay:.24s}
 @keyframes in{to{opacity:1;transform:none}}
 
-/* hero stage: three browser frames and a phone */
-.stage{position:relative;height:clamp(300px,46vw,640px);margin-top:clamp(40px,6vw,80px);perspective:1600px;max-width:1240px;margin-inline:auto}
-.frame{position:absolute;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06),0 30px 80px -20px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.05);will-change:transform;max-width:100%}
-.frame .bar{height:30px;background:#f3f3f5;border-bottom:1px solid #e8e8ec;display:flex;align-items:center;gap:6px;padding-left:12px}
+/* hero stage: a drifting row of real screens that fly in, bob, tilt with the pointer and straighten on scroll */
+.stage{position:relative;margin-top:clamp(36px,5vw,72px);padding-block:30px 10px;overflow:hidden;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));--p:0;--mx:0;--my:0}
+.track{display:flex;gap:clamp(16px,2.4vw,34px);width:max-content;align-items:flex-end;animation:drift 80s linear infinite;transform:translate3d(calc(var(--mx)*-28px),calc(var(--my)*-10px),0)}
+.stage:hover .track{animation-play-state:paused}
+@keyframes drift{to{translate:-50% 0}}
+.fly{opacity:0;transform:translateY(160px) rotate(calc(var(--r)*3));animation:fly 1.5s var(--ease) forwards;animation-delay:calc(.35s + var(--i)*.09s)}
+@keyframes fly{to{opacity:1;transform:none}}
+.bob{animation:bob 6s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-.9s)}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+.card{transform:rotate(calc(var(--r)*(1 - var(--p)))) translateY(calc(var(--y)*(1 - var(--p))));transition:transform .2s linear}
+.frame{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06),0 30px 80px -20px rgba(0,0,0,.3),0 0 0 1px rgba(0,0,0,.05);width:clamp(280px,34vw,520px);aspect-ratio:16/10.6}
+.frame .bar{height:28px;background:#f3f3f5;border-bottom:1px solid #e8e8ec;display:flex;align-items:center;gap:6px;padding-left:12px}
 .frame .bar i{width:9px;height:9px;border-radius:50%;background:#d9d9de}
-.frame .bar span{margin-left:10px;height:16px;flex:1;max-width:280px;border-radius:5px;background:#e9e9ee;margin-inline:auto;margin-right:auto}
-.frame img{width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top}
-.f-c{left:50%;top:0;width:62%;aspect-ratio:16/10;transform:translateX(-50%) rotateX(14deg);z-index:2;transform-origin:top center}
-.f-l{left:0;top:16%;width:36%;aspect-ratio:16/10;transform:rotateY(14deg) rotateZ(-3deg);transform-origin:right center}
-.f-r{right:0;top:12%;width:36%;aspect-ratio:16/10;transform:rotateY(-14deg) rotateZ(3deg);transform-origin:left center}
-.phone{position:absolute;left:58%;bottom:-4%;width:16%;aspect-ratio:9/19.3;border-radius:9% / 4.3%;background:#0b0b0c;padding:2.2%;box-shadow:0 40px 90px -20px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.4);z-index:3;will-change:transform}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:7% / 3.4%}
-.hero-fade{height:120px;margin-top:-120px;background:linear-gradient(transparent,var(--bg));position:relative;z-index:4;pointer-events:none}
-@media(max-width:640px){.stage{height:72vw}.f-l,.f-r{display:none}.f-c{width:100%;transform:rotateX(8deg)}.phone{width:28%;left:auto;right:-2%;bottom:-6%}}
+.frame .bar span{height:14px;width:40%;border-radius:5px;background:#e9e9ee;margin-inline:auto}
+.frame img{width:100%;height:calc(100% - 28px);object-fit:cover;object-position:top}
+.phone{width:clamp(96px,9vw,150px);aspect-ratio:9/19.3;border-radius:14% / 6.5%;background:#0b0b0c;padding:2.4%;box-shadow:0 40px 90px -20px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.4)}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:12% / 5.6%}
+.stage::before,.stage::after{content:"";position:absolute;top:0;bottom:0;width:12%;z-index:2;pointer-events:none}
+.stage::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.stage::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+
+/* rotating word */
+.rot{display:inline-grid;text-align:left;vertical-align:baseline}
+.rot em{grid-area:1/1;white-space:nowrap;opacity:0;transform:translateY(.5em);transition:opacity .6s var(--ease),transform .9s var(--ease)}
+.rot em.cur{opacity:1;transform:none}
+.rot em.out{opacity:0;transform:translateY(-.4em)}
 
 /* strip */
 .strip{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 44px;padding-block:28px 0;color:var(--ink-2);font-size:14px}
@@ -211,7 +223,8 @@ footer nav a:hover{color:var(--ink)}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .in{opacity:1;transform:none}
+  .in,.fly{opacity:1;transform:none}
+  .track,.bob{animation:none}
   .js .rv{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
@@ -224,34 +237,39 @@ footer nav a:hover{color:var(--ink)}
     <a class="brand" href="#top">Kleinefy</a>
     <ul>
       <li><a href="#services">Services</a></li>
-      <li><a href="#trades">Trades</a></li>
+      <li><a href="#idea">Approach</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn" href="#contact">Book a call</a>
+    <a class="btn" href="#contact">Start a project</a>
   </div>
 </div>
 
 <main id="top">
 
   <header class="hero wrap">
-    <p class="kicker in">Software studio · Vancouver, Canada</p>
-    <h1 class="in">We build the software that <em>runs</em> your business.</h1>
-    <p class="sub in">Websites, apps, integrated CRM and ERP, and automation for construction and trade companies. Designed and coded by our own team, from first sketch to launch.</p>
+    <p class="kicker in">Websites · Automations · CRM · ERP · Apps · Vancouver, Canada</p>
+    <h1 class="in">We turn ideas into <span class="rot" id="rot"><em class="cur">websites</em><em>automations</em><em>CRMs</em><em>ERPs</em><em>apps</em><em>revenue.</em></span></h1>
+    <p class="sub in">Kleinefy designs and builds beautiful websites, automations and business systems, and takes any idea from a first sketch to software that earns. One team, from design to launch.</p>
     <div class="actions in">
-      <a class="btn" href="#contact">Book a call</a>
+      <a class="btn" href="#contact">Start a project</a>
       <a class="link" href="#work">See our work <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
   </header>
 
   <div class="stage" id="stage" aria-label="Screens from products Kleinefy designed and built">
-    <div class="frame f-l" data-depth="-1"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/alimun-desktop.webp" alt="Alimun, an online language school, homepage" loading="eager"></div>
-    <div class="frame f-c" data-depth="0"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/quoteai-desktop.webp" alt="quoteAI, AI quoting platform for Canadian trades, homepage" loading="eager"></div>
-    <div class="frame f-r" data-depth="1"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/prontocurriculum-desktop.webp" alt="ProntoCurriculum, Italian CV builder, homepage" loading="eager"></div>
-    <div class="phone" data-depth="2"><img src="assets/quoteai-mobile.webp" alt="quoteAI on a phone"></div>
+    <div class="track" id="track">
+      <div class="fly" style="--i:0;--r:-4deg"><div class="bob"><div class="card frame" style="--r:-4deg;--y:0px"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/quoteai-desktop.webp" alt="quoteAI homepage" loading="eager"></div></div></div>
+      <div class="fly" style="--i:1;--r:5deg"><div class="bob"><div class="card phone" style="--r:5deg;--y:-30px"><img src="assets/alimun-mobile.webp" alt="Alimun on a phone"></div></div></div>
+      <div class="fly" style="--i:2;--r:3deg"><div class="bob"><div class="card frame" style="--r:3deg;--y:10px"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/prontocurriculum-desktop.webp" alt="ProntoCurriculum homepage" loading="eager"></div></div></div>
+      <div class="fly" style="--i:3;--r:-6deg"><div class="bob"><div class="card phone" style="--r:-6deg;--y:-10px"><img src="assets/prevai-mobile.webp" alt="prevAI on a phone"></div></div></div>
+      <div class="fly" style="--i:4;--r:-2deg"><div class="bob"><div class="card frame" style="--r:-2deg;--y:-6px"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/alimun-desktop.webp" alt="Alimun homepage" loading="eager"></div></div></div>
+      <div class="fly" style="--i:5;--r:4deg"><div class="bob"><div class="card phone" style="--r:4deg;--y:-24px"><img src="assets/quoteai-mobile.webp" alt="quoteAI on a phone"></div></div></div>
+      <div class="fly" style="--i:6;--r:2deg"><div class="bob"><div class="card frame" style="--r:2deg;--y:4px"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="assets/prevai-desktop.webp" alt="prevAI homepage" loading="eager"></div></div></div>
+      <div class="fly" style="--i:7;--r:-5deg"><div class="bob"><div class="card phone" style="--r:-5deg;--y:-16px"><img src="assets/prontocurriculum-mobile.webp" alt="ProntoCurriculum on a phone"></div></div></div>
+    </div>
   </div>
-  <div class="hero-fade"></div>
 
   <div class="strip wrap">
     <span class="lead">Products we designed, built and operate</span>
@@ -260,38 +278,38 @@ footer nav a:hover{color:var(--ink)}
 
   <section id="services" class="wrap">
     <div class="head">
-      <h2 class="rv">Everything a company needs to run on <em>one</em> system.</h2>
-      <p class="sub rv">We take a business from its first website to a connected platform where quotes, jobs, purchasing and invoices move without anyone retyping a number.</p>
+      <h2 class="rv">Beautiful on the outside. <em>Engineered</em> underneath.</h2>
+      <p class="sub rv">Whatever you bring us, a brand, a process or an idea on a napkin, we design it, build it and connect it to the systems that make it earn.</p>
     </div>
     <div class="bento">
       <article class="tile big rv">
-        <h3>Integrated CRM &amp; ERP</h3>
-        <p>Leads, estimates, scheduling, purchasing, inventory and accounting in one place, built around how your company already works.</p>
-        <div class="art"><img src="assets/quoteai-quote.webp" alt="A generated quote with line items, HST and total" loading="lazy"></div>
+        <h3>Websites that win the work</h3>
+        <p>Hand-coded, fast and built to rank. Every site is designed for your company alone, with the words your customers search for and a path to the enquiry.</p>
+        <div class="art"><img src="assets/prontocurriculum-desktop.webp" alt="ProntoCurriculum website" loading="lazy"></div>
       </article>
       <article class="tile big dark rv">
-        <h3>Automation</h3>
-        <p>A request becomes a quote. An accepted quote becomes a job, a schedule, a purchase order and an invoice. The repetitive work runs itself.</p>
-        <div class="pipe"><span>Request</span><i></i><span>Quote</span><i></i><span>Job</span><i></i><span>Invoice</span><i></i><span>Paid</span></div>
+        <h3>Automations that run while you sleep</h3>
+        <p>A lead becomes a quote. A signature becomes a job, a schedule, an invoice and a payment. We connect the tools you have and write the pieces that are missing.</p>
+        <div class="pipe"><span>Lead</span><i></i><span>Quote</span><i></i><span>Job</span><i></i><span>Invoice</span><i></i><span>Paid</span></div>
       </article>
-      <article class="tile sm rv"><h3>Websites</h3><p>Fast, search-ready sites written by hand. Built to rank and to turn visitors into calls.</p></article>
-      <article class="tile sm rv"><h3>Mobile apps</h3><p>Field apps for crews and clients: daily logs, photos, time, approvals. They work on one bar of signal.</p></article>
-      <article class="tile sm rv"><h3>Legacy modernization</h3><p>Paper, spreadsheets and aging software moved to a modern stack, one workflow at a time, without stopping the business.</p></article>
+      <article class="tile sm rv"><h3>CRM</h3><p>Every lead, conversation and deal in one place, shaped around how your team actually sells. No per-seat tax, no features you don't use.</p></article>
+      <article class="tile sm rv"><h3>ERP</h3><p>Quotes, purchasing, inventory, projects and accounting talking to each other. Built for your workflow, not the other way around.</p></article>
+      <article class="tile sm rv"><h3>Apps &amp; products</h3><p>From idea to App Store. We have launched four products of our own, so we know what it takes to get to paying users.</p></article>
     </div>
   </section>
 
-  <section id="trades" class="band">
+  <section id="idea" class="band">
     <div class="wrap">
-      <h2 class="rv">Built for the people who <em>build.</em></h2>
-      <p class="sub rv" style="margin-top:28px">Contractors lose hours every week to quotes in spreadsheets, job notes in text threads and the same numbers typed into three systems. We know, because we built products to fix exactly that, and thousands of tradespeople use them.</p>
+      <h2 class="rv">Bring us an idea. Leave with something <em>revenue-ready.</em></h2>
+      <p class="sub rv" style="margin-top:28px">Most studios hand you a design, or a codebase, and wish you luck. We build the whole thing: the brand, the product, the payments, the search presence and the operations behind it. We know it works because we did it for ourselves, four times.</p>
       <div class="nums">
+        <div class="num rv"><b><span data-count="4">4</span><em>products</em></b><p>Designed, built and launched by us, all live, all taking payments, in Canada and Italy.</p></div>
         <div class="num rv"><b><span data-count="30">30</span><em>sec</em></b><p>From a plain-language job description to a priced, branded quote, in our quoteAI and prevAI products.</p></div>
-        <div class="num rv"><b><span data-count="2">2</span><em>countries</em></b><p>Live platforms serving trades in Canada and Italy, with tax rules, languages and documents for each.</p></div>
-        <div class="num rv"><b><span data-count="1">1</span><em>system</em></b><p>Lead to paid invoice in one place. No exports, no re-keying, no "which version is right".</p></div>
+        <div class="num rv"><b><span data-count="1">1</span><em>team</em></b><p>Design, engineering, SEO and launch under one roof. No handoffs, no freelancers, no surprises.</p></div>
       </div>
       <div class="prose">
-        <div class="rv"><h3>What changes on day one</h3><p>Your price book lives in the system. Estimates come out in minutes and look the same every time. Every job carries its photos, change orders and conversations in one record that the office and the field both see.</p></div>
-        <div class="rv"><h3>What changes by month three</h3><p>Hours and materials flow straight into invoicing. You see what is booked, late and unpaid on one board, from a phone. The spreadsheet that ran the company is retired, and nobody misses it.</p></div>
+        <div class="rv"><h3>What revenue-ready means</h3><p>A product people can find, understand, trust and pay for. Fast pages that rank. Onboarding that converts. Payments, invoices and tax that are right in every region. Analytics so you know what to do next.</p></div>
+        <div class="rv"><h3>Where we go deepest</h3><p>Companies that run on process: construction, trades, services, schools, anyone who quotes, schedules, delivers and bills. We modernize legacy operations one workflow at a time and connect everything into one system.</p></div>
       </div>
     </div>
   </section>
@@ -340,7 +358,7 @@ footer nav a:hover{color:var(--ink)}
 
   <section class="statement wrap">
     <h2 class="rv">No templates. No page builders. No agency handing your project to a freelancer. <em>Just us.</em></h2>
-    <p class="sub rv">Kleinefy is a small team in Vancouver that designs, writes and ships every line itself. We speak trades, we answer the phone, and we are accountable for the result.</p>
+    <p class="sub rv">Kleinefy is a small team in Vancouver that designs, writes and ships every line itself. We answer the phone, we argue for the better idea, and we are accountable for the result.</p>
   </section>
 
   <section id="faq" class="wrap">
@@ -350,7 +368,7 @@ footer nav a:hover{color:var(--ink)}
         <details class="rv" open><summary>Do you build custom CRM and ERP systems for construction companies?<span class="pm"></span></summary><p>Yes. We design and build one system around how your company quotes, schedules, buys and invoices, and we connect it to the tools you already use, such as accounting and payroll.</p></details>
         <details class="rv"><summary>Can you modernize our systems without stopping operations?<span class="pm"></span></summary><p>Yes. We replace spreadsheets, paper and old software one workflow at a time, running the new system beside the old one until your team is ready to switch.</p></details>
         <details class="rv"><summary>How long does a project take?<span class="pm"></span></summary><p>A website usually takes three to six weeks. A CRM or ERP system ships its first working version in eight to twelve weeks and grows from there.</p></details>
-        <details class="rv"><summary>Do you only work with construction and trades?<span class="pm"></span></summary><p>Construction and trade companies are our focus, and our own products serve them. We also build for other industries when the fit is right.</p></details>
+        <details class="rv"><summary>What kind of projects do you take on?<span class="pm"></span></summary><p>Websites, automations, CRM and ERP systems, mobile and web apps, and full products from idea to launch. We go deepest with companies that run on process, such as construction, trades and services, but a good idea from any industry is welcome.</p></details>
         <details class="rv"><summary>Who owns the code?<span class="pm"></span></summary><p>You do. Everything we build for you is delivered with source code, documentation and the accounts in your name.</p></details>
       </div>
     </div>
@@ -359,9 +377,9 @@ footer nav a:hover{color:var(--ink)}
   <section id="contact" class="cta">
     <div class="band">
       <div class="wrap">
-        <h2 class="rv">Tell us what is slowing your company <em>down.</em></h2>
-        <p class="sub rv" style="margin:26px auto 0;text-align:center">A 30-minute call. You describe the job, the tool you wish you had or the process that eats your week. We tell you what we would build and what it would cost.</p>
-        <div class="actions rv"><a class="btn light" href="#contact">Book a call</a></div>
+        <h2 class="rv">Tell us the <em>idea.</em></h2>
+        <p class="sub rv" style="margin:26px auto 0;text-align:center">A 30-minute call. You describe the website you want, the process that eats your week or the product in your head. We tell you what we would build, how long it takes and what it costs.</p>
+        <div class="actions rv"><a class="btn light" href="#contact">Start a project</a></div>
         <p class="mail rv">or write to <b>hello@kleinefy.com</b></p>
       </div>
     </div>
@@ -387,34 +405,25 @@ footer nav a:hover{color:var(--ink)}
   var nav=document.getElementById('nav');
   addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40)},{passive:true});
 
-  // hero stage: flatten + parallax on scroll, tilt on pointer
-  var stage=document.getElementById('stage');
-  var items=[].slice.call(stage.querySelectorAll('[data-depth]'));
-  var base={'f-l':'rotateY(14deg) rotateZ(-3deg)','f-c':'translateX(-50%) rotateX(14deg)','f-r':'rotateY(-14deg) rotateZ(3deg)','phone':''};
-  var px=0,py=0,sy=0,raf;
-  function cls(el){return el.classList.contains('f-l')?'f-l':el.classList.contains('f-c')?'f-c':el.classList.contains('f-r')?'f-r':'phone'}
-  function render(){
-    raf=0;
-    var r=stage.getBoundingClientRect();
-    var p=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));  // 0 at bottom of viewport, 1 past top
-    items.forEach(function(el){
-      var k=cls(el),depth=+el.dataset.depth;
-      var t='';
-      if(k==='f-c') t='translateX(-50%) rotateX('+(14-14*Math.min(1,p*1.6))+'deg) translateY('+(-p*40)+'px)';
-      else if(k==='f-l') t='rotateY('+(14-10*p)+'deg) rotateZ(-3deg) translateY('+(-p*90)+'px)';
-      else if(k==='f-r') t='rotateY('+(-14+10*p)+'deg) rotateZ(3deg) translateY('+(-p*120)+'px)';
-      else t='translateY('+(-p*160)+'px)';
-      t+=' translate3d('+(px*depth*10)+'px,'+(py*depth*8)+'px,0)';
-      el.style.transform=t;
-    });
-  }
+  // hero stage: straighten on scroll, drift with the pointer
+  var stage=document.getElementById('stage'),raf,px=0,py=0;
+  function render(){raf=0;var r=stage.getBoundingClientRect();var p=Math.min(1,Math.max(0,-r.top/(r.height*.9)));
+    stage.style.setProperty('--p',p.toFixed(3));stage.style.setProperty('--mx',px.toFixed(3));stage.style.setProperty('--my',py.toFixed(3))}
   function ask(){if(!raf)raf=requestAnimationFrame(render)}
   if(!reduce){
     addEventListener('scroll',ask,{passive:true});addEventListener('resize',ask);
-    stage.addEventListener('pointermove',function(e){var r=stage.getBoundingClientRect();px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;ask()});
-    stage.addEventListener('pointerleave',function(){px=0;py=0;ask()});
+    addEventListener('pointermove',function(e){px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;ask()});
     render();
   }
+
+  // duplicate the track once so the drift loops seamlessly
+  var track=document.getElementById('track');
+  [].slice.call(track.children).forEach(function(c){var k=c.cloneNode(true);k.style.animation='none';k.style.opacity='1';k.style.transform='none';k.setAttribute('aria-hidden','true');track.appendChild(k)});
+
+  // rotating word
+  var ems=[].slice.call(document.querySelectorAll('#rot em')),ri=0;
+  if(!reduce)setInterval(function(){var cur=ems[ri];cur.classList.remove('cur');cur.classList.add('out');
+    setTimeout(function(){cur.classList.remove('out')},700);ri=(ri+1)%ems.length;ems[ri].classList.add('cur')},2400);
 
   // numbers count up
   var nio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;nio.unobserve(e.target);var el=e.target,end=+el.dataset.count,t0;if(reduce)return;
