@@ -105,7 +105,7 @@ var RAYS='precision highp float;uniform vec2 uResolution;uniform float uTime;uni
   var levels={aurora:1,rays:0,precip:0},target={aurora:1,rays:0,precip:0};
   var lean={v:0,t:0,px:.5},rlean={v:0,t:0};
   var isDark=function(){return d.classList.contains('dark')};
-  var au=glCanvas($('#aurora'),AURORA,function(){lean.v+=(lean.t-lean.v)*.06;var dk=isDark();return {uA:hex(dk?'#12343a':'#c9b3a6'),uB:hex(dk?'#2a3f7a':'#b5652d'),uC:hex(dk?'#173a4a':'#9aa4b4'),uHeight:.45,uOpacity:levels.aurora*(dk?.9:.5),uLean:lean.v,uPX:lean.px}},.5);
+  var au=glCanvas($('#aurora'),AURORA,function(){lean.v+=(lean.t-lean.v)*.06;var dk=isDark();return {uA:hex(dk?'#2b2b2b':'#b8bcc6'),uB:hex(dk?'#4a4e58':'#8f95a3'),uC:hex(dk?'#2b2b2b':'#b8bcc6'),uHeight:.45,uOpacity:levels.aurora*(dk?.9:.6),uLean:lean.v,uPX:lean.px}},.5);
   var ry=glCanvas($('#rays'),RAYS,function(){rlean.v+=(rlean.t-rlean.v)*.06;var dk=isDark();return dk?{uOrigin:[1,1],uA:hex('#eaebff'),uB:hex('#edf0f5'),uIntensity:1.1,uSpread:.42,uDensity:5,uOpacity:levels.rays*.8,uLean:rlean.v}:{uOrigin:[1,1],uA:hex('#ffd27a'),uB:hex('#ffe9c2'),uIntensity:1.5,uSpread:.8,uDensity:12,uOpacity:levels.rays*.45,uLean:rlean.v}},.5);
   var precip=(function(){
     var cv=$('#precip'),ctx=cv.getContext('2d'),mode='rain',drops=[],flakes=[],ripples=[],drift=[],W=0,H=0,dpr=1;
