@@ -305,6 +305,39 @@ $$('[data-scramble]').forEach(function(a){var t=a.textContent;a.addEventListener
   host.addEventListener('pointerleave',function(){hover=false});
 })();
 
+/* reveals */
+(function(){
+  var sel='.card,.stage,.brief,.tile,.two-col .txt,.tools,.acc,.screen,.nextcase a,.contact .box,.lead,.h2,.show h3,.case-hero > *,.sec .eyebrow';
+  var els=$$(sel);
+  // siblings get a beat each
+  var groups=new Map();
+  els.forEach(function(el){if(el.classList.contains('stage')){el.classList.add('rv-l');return}if(el.classList.contains('brief')){el.classList.add('rv-r');return}
+    el.classList.add('rv');var par=el.parentElement;var n=groups.get(par)||0;el.style.setProperty('--i',n);groups.set(par,n+1)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  $$('.rv,.rv-l,.rv-r').forEach(function(el){io.observe(el)});
+  var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');rio.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
+  $$('.rule').forEach(function(r){rio.observe(r)});
+})();
+
+/* morph-in headings: one SVG filter per heading, its blur eased to zero while a colour threshold keeps the edges liquid */
+(function(){
+  if(reduce)return;
+  var heads=$$('.h2,.show h3,.case-hero h1,.two-col h2');if(!heads.length)return;
+  var NS='http://www.w3.org/2000/svg';var svg=document.createElementNS(NS,'svg');svg.setAttribute('aria-hidden','true');svg.style.cssText='position:absolute;width:0;height:0;overflow:hidden';document.body.appendChild(svg);
+  heads.forEach(function(h,i){
+    var id='morph-'+i;var f=document.createElementNS(NS,'filter');f.setAttribute('id',id);f.setAttribute('color-interpolation-filters','sRGB');
+    var blur=document.createElementNS(NS,'feGaussianBlur');blur.setAttribute('stdDeviation','0');blur.setAttribute('result','b');
+    var cm=document.createElementNS(NS,'feColorMatrix');cm.setAttribute('in','b');cm.setAttribute('type','matrix');cm.setAttribute('values','1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9');
+    f.appendChild(blur);f.appendChild(cm);svg.appendChild(f);
+    var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;io.disconnect();
+      h.style.filter='url(#'+id+')';var t0=performance.now(),D=1100;
+      (function step(t){var p=Math.min(1,(t-t0)/D);var e=1-Math.pow(1-p,3);blur.setAttribute('stdDeviation',String(((1-e)*10).toFixed(2)));h.style.opacity=String(Math.min(1,p*2.2));
+        if(p<1)requestAnimationFrame(step);else h.style.filter=''})(t0);
+    },{threshold:.4});
+    h.style.opacity='0';io.observe(h);
+  });
+})();
+
 /* booking sheet: one panel for every "Book a call" on the site */
 (function(){
   var dark=function(){return d.classList.contains('dark')};
