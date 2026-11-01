@@ -24,9 +24,10 @@
 /* Layout: one 1200px column with hairline sides, a glass nav floating over a sky, and nothing decorating itself.
    Type: the system face (SF Pro on Apple devices), one grey scale, one charcoal accent. */
 :root{
-  --bg:#ffffff;--fg:#09090b;--muted:#f4f4f5;--muted-fg:#71717a;--border:#e4e4e7;--border-strong:#a1a1aa;
-  --secondary:#f4f4f5;--primary:#1c1c1c;--primary-fg:#fafafa;--ring:#71717a;--card:#ffffff;
-  --glass:rgba(255,255,255,.35);--glass-border:rgba(255,255,255,.5);--hair:rgba(9,9,11,.05);
+  --bg:#fcfcfb;--fg:#15171c;--muted:#f3f2ee;--muted-fg:#6e7079;--border:#e6e4df;--border-strong:#a6a39b;
+  --secondary:#f3f2ee;--primary:#15171c;--primary-fg:#f8f7f4;--ring:#8a8c94;--card:#fcfcfb;
+  --brass:#b5652d;--brass-soft:#d9a06b;
+  --glass:rgba(252,252,251,.4);--glass-border:rgba(255,255,255,.55);--hair:rgba(21,23,28,.06);
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Roboto,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --hand:"Reenie Beanie",cursive;
@@ -34,16 +35,18 @@
   color-scheme:light;
 }
 .dark,:root[data-theme="dark"]{
-  --bg:#09090b;--fg:#fafafa;--muted:#27272a;--muted-fg:#a1a1aa;--border:#3f3f46;--border-strong:#71717a;
-  --secondary:#27272a;--primary:#f1f1f1;--primary-fg:#18181b;--ring:#a1a1aa;--card:#09090b;
-  --glass:rgba(24,24,27,.45);--glass-border:rgba(255,255,255,.12);--hair:rgba(250,250,250,.07);
+  --bg:#0e0f12;--fg:#f2f1ee;--muted:#1a1b20;--muted-fg:#9b9ca4;--border:#2b2d34;--border-strong:#5c5f69;
+  --secondary:#1a1b20;--primary:#f2f1ee;--primary-fg:#15171c;--ring:#9b9ca4;--card:#0e0f12;
+  --brass:#d9a06b;--brass-soft:#b5652d;
+  --glass:rgba(26,27,32,.5);--glass-border:rgba(255,255,255,.12);--hair:rgba(242,241,238,.07);
   color-scheme:dark;
 }
 @media (prefers-color-scheme:dark){
   :root:not(.light):not([data-theme="light"]){
-    --bg:#09090b;--fg:#fafafa;--muted:#27272a;--muted-fg:#a1a1aa;--border:#3f3f46;--border-strong:#71717a;
-    --secondary:#27272a;--primary:#f1f1f1;--primary-fg:#18181b;--ring:#a1a1aa;--card:#09090b;
-    --glass:rgba(24,24,27,.45);--glass-border:rgba(255,255,255,.12);--hair:rgba(250,250,250,.07);
+    --bg:#0e0f12;--fg:#f2f1ee;--muted:#1a1b20;--muted-fg:#9b9ca4;--border:#2b2d34;--border-strong:#5c5f69;
+    --secondary:#1a1b20;--primary:#f2f1ee;--primary-fg:#15171c;--ring:#9b9ca4;--card:#0e0f12;
+    --brass:#d9a06b;--brass-soft:#b5652d;
+    --glass:rgba(26,27,32,.5);--glass-border:rgba(255,255,255,.12);--hair:rgba(242,241,238,.07);
     color-scheme:dark;
   }
 }
@@ -98,7 +101,7 @@ ul{padding:0;list-style:none}
 .xarrow .chip .trail svg:nth-child(3){transition-delay:100ms}
 .xarrow .chip .trail svg:nth-child(4){transition-delay:130ms}
 .xarrow .chip .trail svg:nth-child(5){transition-delay:160ms}
-.xarrow svg.dc{width:20px;height:28px;fill:currentColor}
+.xarrow svg.dc{width:22px;height:22px;fill:currentColor}
 .xarrow .txt{position:relative;margin:0 20px 0 54px;white-space:nowrap;font-size:16px;font-weight:500;transition:opacity .15s,translate .15s}
 .xarrow.tall{height:64px;min-width:288px}
 .xarrow.tall .chip{width:52px}
@@ -116,8 +119,8 @@ ul{padding:0;list-style:none}
 @keyframes turn{to{--turn:360deg}}
 .metal{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 20px;border-radius:999px;font-size:14px;font-weight:500;color:var(--fg);overflow:hidden;user-select:none;box-shadow:0 8px 22px rgba(0,0,0,.16);transition:scale .15s}
 .metal:hover{scale:1.02}.metal:active{scale:.93}
-.metal .rim{position:absolute;inset:-60%;z-index:0;background:conic-gradient(from var(--turn),#0b0b0b,#8a8a8a 10%,#fbfbfb 20%,#555 32%,#0d0d0d 45%,#b5b5b5 60%,#fff 70%,#474747 84%,#0b0b0b);animation:turn 9s linear infinite}
-.metal .sheen{position:absolute;inset:0 auto 0 0;width:50%;z-index:1;transform:skewX(-12deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);opacity:.6;filter:blur(3px);mix-blend-mode:screen;translate:-120% 0;transition:translate .9s cubic-bezier(.65,0,.3,1)}
+.metal .rim{position:absolute;inset:-60%;z-index:0;background:conic-gradient(from var(--turn),#3a2412,#b5652d 12%,#f6dfc2 22%,#8a4a1e 34%,#2a1a0c 46%,#d9a06b 60%,#fff2e0 70%,#6b3a16 84%,#3a2412);animation:turn 9s linear infinite}
+.metal .sheen{position:absolute;inset:0 auto 0 0;width:50%;z-index:1;transform:skewX(-12deg);background:linear-gradient(90deg,transparent,rgba(255,236,210,.7),transparent);opacity:.6;filter:blur(3px);mix-blend-mode:screen;translate:-120% 0;transition:translate .9s cubic-bezier(.65,0,.3,1)}
 .metal:hover .sheen,.metal:focus-visible .sheen{translate:220% 0}
 .metal .face{position:absolute;inset:2px;z-index:2;border-radius:inherit;background:var(--bg);transition:background .2s}
 .metal:hover .face{background:color-mix(in srgb,var(--muted) 40%,var(--bg))}
@@ -131,7 +134,7 @@ ul{padding:0;list-style:none}
 .rail a{pointer-events:auto;position:relative;display:block;height:14px;width:48px;display:flex;align-items:center}
 .rail a i{display:block;height:1px;width:16px;background:var(--border-strong);opacity:.6;transition:width .3s var(--ease),opacity .3s,background .3s}
 .rail a:hover i{width:40px;opacity:1}
-.rail a.on i{width:48px;background:var(--fg);opacity:1}
+.rail a.on i{width:48px;background:var(--brass);opacity:1}
 .rail a b{position:absolute;left:60px;top:50%;translate:0 -50%;font-weight:400;font-size:14px;white-space:nowrap;background:var(--bg);color:var(--fg);padding:8px 16px;border-radius:999px;box-shadow:0 0 .5px rgba(0,0,0,.4),0 1px .5px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.08);opacity:0;translate:-6px -50%;transition:opacity .25s,translate .25s var(--ease);pointer-events:none}
 .rail a:hover b{opacity:1;translate:0 -50%}
 
@@ -139,6 +142,7 @@ ul{padding:0;list-style:none}
 .hero{position:relative;min-height:min(92vh,900px);display:flex;align-items:flex-end;overflow:clip;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(24px,env(safe-area-inset-left,0px)) max(24px,env(safe-area-inset-right,0px))}
 .sky{position:absolute;inset:0;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent)}
 .sky canvas{position:absolute;inset:0;width:100%;height:100%}
+#precip{z-index:2}
 .clouds{position:absolute;inset:0;opacity:0;transition:opacity 2.5s ease-in-out}
 .cloud{position:absolute;left:0;width:288px;height:96px;scale:var(--s,1);animation:drift linear infinite;animation-play-state:paused}
 .sky[data-scene="clouds"] .cloud,.sky[data-scene="sun"] .cloud{animation-play-state:running}
@@ -171,7 +175,7 @@ ul{padding:0;list-style:none}
 .rule{position:relative;height:1px;pointer-events:none}
 .rule::before{content:"";position:absolute;top:0;left:-129px;right:-129px;height:1px;background:var(--hair)}
 .rule i{position:absolute;top:0;width:20px;height:20px;translate:-50% -50%;border-radius:50%;background:var(--bg);display:grid;place-items:center}
-.rule i::after{content:"";width:2px;height:2px;border-radius:50%;background:var(--fg)}
+.rule i::before,.rule i::after{content:"";position:absolute;background:var(--fg)}.rule i::before{width:7px;height:1px}.rule i::after{width:1px;height:7px}
 .rule i:last-child{left:100%}
 section{overflow-x:clip}
 .sec{padding:96px 24px 48px}
@@ -250,6 +254,8 @@ section{overflow-x:clip}
 /* footer */
 footer{overflow:clip;padding:120px 24px 0}
 footer .col{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:120px}
+.ascii{width:100%;height:clamp(140px,22vw,260px);position:relative}
+.ascii canvas{position:absolute;inset:0;width:100%;height:100%}
 .hw{font-family:var(--hand);font-size:32px;line-height:32px;text-align:center;max-width:360px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--fg)}
 .hw .tk{position:relative;display:inline-block}
 .hw .tk .ink{display:inline-block;clip-path:inset(0 100% 0 0)}
@@ -310,20 +316,20 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
   </button>
   <a class="xarrow" href="#contact">
     <span class="chip" aria-hidden="true">
-      <span class="one"><svg class="dc" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span>
-      <span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span>
+      <span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span>
+      <span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span>
     </span>
     <span class="txt">Book a call</span>
   </a>
 </header>
 
 <nav class="rail" id="rail" aria-label="Sections on this page">
-  <a href="#home" data-s="home"><i></i><b>Home</b></a>
-  <a href="#work" data-s="work"><i></i><b>Work</b></a>
-  <a href="#services" data-s="services"><i></i><b>Services</b></a>
-  <a href="#about" data-s="about"><i></i><b>About</b></a>
-  <a href="#stack" data-s="stack"><i></i><b>Stack</b></a>
-  <a href="#contact" data-s="contact"><i></i><b>Contact</b></a>
+  <a href="#home" data-s="home"><i></i><b>01 · Home</b></a>
+  <a href="#work" data-s="work"><i></i><b>02 · Work</b></a>
+  <a href="#services" data-s="services"><i></i><b>03 · Services</b></a>
+  <a href="#about" data-s="about"><i></i><b>04 · About</b></a>
+  <a href="#stack" data-s="stack"><i></i><b>05 · Stack</b></a>
+  <a href="#contact" data-s="contact"><i></i><b>06 · Contact</b></a>
 </nav>
 
 <main>
@@ -339,6 +345,7 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
       <div class="cloud" style="top:30%;--s:1;animation-duration:80s;animation-delay:-30s"><i></i><i></i><i></i></div>
       <div class="cloud" style="top:14%;--s:.6;animation-duration:120s;animation-delay:-60s"><i></i><i></i><i></i></div>
     </div>
+    <canvas id="precip"></canvas>
     <canvas id="rays"></canvas>
   </div>
   <div class="wrap">
@@ -347,12 +354,12 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
     <p class="lede">We design and build websites, automations, CRMs, ERPs and apps, make them visible on Google and in AI answers, and stay until they earn. One team, from the first sketch to the first paying customer.</p>
     <div class="acts">
       <a class="xarrow tall" href="#contact">
-        <span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span></span>
+        <span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span></span>
         <span class="txt">Start a project</span>
       </a>
       <a class="metal" href="#work"><span class="rim" aria-hidden="true"></span><span class="sheen" aria-hidden="true"></span><span class="face" aria-hidden="true"></span><span class="edge" aria-hidden="true"></span><span class="in">See our work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6"/></svg></span></a>
     </div>
-    <p class="hint">Point at the sky to hold the weather. Click it for the next.</p>
+    <p class="hint" id="hint">Point at the sky to hold the weather. Click it for the next.</p>
   </div>
 </section>
 
@@ -388,7 +395,7 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
           <div class="foot">
             <p class="mutedfg">Role: Brand, product design, engineering, operations</p>
             <p>A school that runs itself: scheduling, payments, homework and progress in one place.</p>
-            <a class="xarrow" href="https://alimun.com" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span></span><span class="txt">Visit alimun.com<span class="sr"> (opens in a new tab)</span></span></a>
+            <a class="xarrow" href="https://alimun.com" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span></span><span class="txt">Visit alimun.com<span class="sr"> (opens in a new tab)</span></span></a>
           </div>
         </div>
       </div>
@@ -423,7 +430,7 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
           <div class="foot">
             <p class="mutedfg">Role: Product, design, engineering, go-to-market</p>
             <p>Tradespeople quote from the truck and get paid without an office.</p>
-            <a class="xarrow" href="https://quoteai.ca" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span></span><span class="txt">Visit quoteai.ca<span class="sr"> (opens in a new tab)</span></span></a>
+            <a class="xarrow" href="https://quoteai.ca" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span></span><span class="txt">Visit quoteai.ca<span class="sr"> (opens in a new tab)</span></span></a>
           </div>
         </div>
       </div>
@@ -458,7 +465,7 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
           <div class="foot">
             <p class="mutedfg">Role: Product, design, engineering, localisation</p>
             <p>A product launched in a second country without starting over.</p>
-            <a class="xarrow" href="https://prevai.it" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span></span><span class="txt">Visit prevai.it<span class="sr"> (opens in a new tab)</span></span></a>
+            <a class="xarrow" href="https://prevai.it" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span></span><span class="txt">Visit prevai.it<span class="sr"> (opens in a new tab)</span></span></a>
           </div>
         </div>
       </div>
@@ -529,7 +536,7 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
     </div>
     <div class="box">
       <div><p class="mutedfg">Write to</p><p class="mail">hello@kleinefy.com</p></div>
-      <a class="xarrow tall" href="mailto:hello@kleinefy.com"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 20 28"><circle cx="5" cy="5" r="2"/><circle cx="10.5" cy="9.5" r="2"/><circle cx="16" cy="14" r="2"/><circle cx="10.5" cy="18.5" r="2"/><circle cx="5" cy="23" r="2"/></svg></span></span><span class="txt">Book a call</span></a>
+      <a class="xarrow tall" href="mailto:hello@kleinefy.com"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span></span><span class="txt">Book a call</span></a>
     </div>
   </div>
 </section>
@@ -539,6 +546,7 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
 <footer>
   <div class="col">
     <figure class="hw" id="hw" data-quote="The details are not the details. They make the design." data-by="Charles Eames"></figure>
+    <div class="ascii" id="ascii" aria-hidden="true"><canvas></canvas></div>
     <div class="fl">
       <div class="row">
         <span class="brandmark">kleinefy</span>
@@ -662,24 +670,51 @@ var RAYS='precision highp float;uniform vec2 uResolution;uniform float uTime;uni
 
 /* weather sky */
 (function(){
-  var sky=$('#sky'),scenes=['aurora','clouds','sun'],idx=0,elapsed=0,hover=false,onScreen=true;
-  var levels={aurora:1,rays:0},target={aurora:1,rays:0};
+  var sky=$('#sky'),scenes=['aurora','rain','snow','clouds','sun'],idx=0,elapsed=0,hover=false,onScreen=true;
+  var levels={aurora:1,rays:0,precip:0},target={aurora:1,rays:0,precip:0};
   var lean={v:0,t:0,px:.5},rlean={v:0,t:0};
   var isDark=function(){return d.classList.contains('dark')};
-  var au=glCanvas($('#aurora'),AURORA,function(){lean.v+=(lean.t-lean.v)*.06;var dk=isDark();return {uA:hex(dk?'#1f2937':'#b8bcc6'),uB:hex(dk?'#334155':'#9aa0ad'),uC:hex(dk?'#1f2937':'#b8bcc6'),uHeight:.45,uOpacity:levels.aurora*(dk?.9:.65),uLean:lean.v,uPX:lean.px}},.5);
+  var au=glCanvas($('#aurora'),AURORA,function(){lean.v+=(lean.t-lean.v)*.06;var dk=isDark();return {uA:hex(dk?'#12343a':'#c9b3a6'),uB:hex(dk?'#2a3f7a':'#b5652d'),uC:hex(dk?'#173a4a':'#9aa4b4'),uHeight:.45,uOpacity:levels.aurora*(dk?.9:.5),uLean:lean.v,uPX:lean.px}},.5);
   var ry=glCanvas($('#rays'),RAYS,function(){rlean.v+=(rlean.t-rlean.v)*.06;var dk=isDark();return dk?{uOrigin:[1,1],uA:hex('#eaebff'),uB:hex('#edf0f5'),uIntensity:1.1,uSpread:.42,uDensity:5,uOpacity:levels.rays*.8,uLean:rlean.v}:{uOrigin:[1,1],uA:hex('#ffd27a'),uB:hex('#ffe9c2'),uIntensity:1.5,uSpread:.8,uDensity:12,uOpacity:levels.rays*.45,uLean:rlean.v}},.5);
+  var precip=(function(){
+    var cv=$('#precip'),ctx=cv.getContext('2d'),mode='rain',drops=[],flakes=[],ripples=[],drift=[],W=0,H=0,dpr=1;
+    function size(){var r=cv.getBoundingClientRect();dpr=Math.min(1.5,devicePixelRatio||1);var w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);if(w!==W||h!==H){W=w;H=h;cv.width=w;cv.height=h;drift=new Array(Math.ceil(W/8)+1).fill(0)}}
+    function start(m){mode=m;size();drops=[];flakes=[];ripples=[];drift=drift.map(function(){return 0});
+      for(var i=0;i<170;i++)drops.push({x:Math.random()*W,y:Math.random()*H,l:(12+Math.random()*16)*dpr,v:(520+Math.random()*320)*dpr});
+      for(var j=0;j<150;j++)flakes.push({x:Math.random()*W,y:Math.random()*H,r:(1.2+Math.random()*2.2)*dpr,v:(28+Math.random()*40)*dpr,ph:Math.random()*6.28,sw:(.4+Math.random()*.8)*dpr})}
+    function draw(dt,level,dark){
+      if(level<=0.001){if(W)ctx.clearRect(0,0,W,H);return}size();var s=dt/1000;ctx.clearRect(0,0,W,H);ctx.globalAlpha=level;
+      var ground=H*.74;
+      if(mode==='rain'){
+        ctx.strokeStyle=dark?'rgba(170,186,206,.55)':'rgba(90,104,124,.45)';ctx.lineWidth=1*dpr;ctx.lineCap='round';ctx.beginPath();
+        drops.forEach(function(d){d.y+=d.v*s;d.x+=d.v*s*.12;if(d.y>ground){if(Math.random()<.35)ripples.push({x:d.x,y:ground+Math.random()*6*dpr,r:1,a:.5});d.y=-d.l-Math.random()*40*dpr;d.x=Math.random()*W}
+          ctx.moveTo(d.x,d.y);ctx.lineTo(d.x-d.l*.12,d.y-d.l)});ctx.stroke();
+        ctx.strokeStyle=dark?'rgba(170,186,206,1)':'rgba(90,104,124,1)';
+        for(var i=ripples.length-1;i>=0;i--){var r=ripples[i];r.r+=60*dpr*s;r.a-=.9*s;if(r.a<=0){ripples.splice(i,1);continue}ctx.globalAlpha=level*r.a;ctx.beginPath();ctx.ellipse(r.x,r.y,r.r,r.r*.22,0,0,6.283);ctx.stroke()}
+        ctx.globalAlpha=level*.18;var g=ctx.createLinearGradient(0,ground-20*dpr,0,ground+60*dpr);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,dark?'rgba(170,186,206,.6)':'rgba(90,104,124,.5)');ctx.fillStyle=g;ctx.fillRect(0,ground-20*dpr,W,80*dpr);
+      }else{
+        ctx.fillStyle=dark?'rgba(242,241,238,.9)':'rgba(176,186,200,.9)';
+        flakes.forEach(function(f){f.ph+=s*1.4;f.y+=f.v*s;f.x+=Math.sin(f.ph)*f.sw;var col=Math.max(0,Math.min(drift.length-1,Math.floor(f.x/8)));var top=ground-drift[col];
+          if(f.y>top){drift[col]=Math.min(44*dpr,drift[col]+f.r*.7);if(col>0)drift[col-1]=Math.min(44*dpr,drift[col-1]+f.r*.25);if(col<drift.length-1)drift[col+1]=Math.min(44*dpr,drift[col+1]+f.r*.25);f.y=-10;f.x=Math.random()*W}
+          ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,6.283);ctx.fill()});
+        ctx.globalAlpha=level*(dark?.35:.5);ctx.fillStyle=dark?'rgba(242,241,238,1)':'rgba(176,186,200,1)';ctx.beginPath();ctx.moveTo(0,ground+26*dpr);for(var c=0;c<drift.length;c++){ctx.lineTo(c*8,ground-drift[c])}ctx.lineTo(W,ground+26*dpr);ctx.closePath();ctx.fill();
+      }
+      ctx.globalAlpha=1}
+    return {start:start,draw:draw}})();
   var name=$('#sceneName'),clouds=$('#clouds'),blue=$('#skyblue');
-  var labels={aurora:'Kleinefy · Software studio, Vancouver',clouds:'Kleinefy · Software studio, Vancouver',sun:'Kleinefy · Software studio, Vancouver'};
-  function setScene(i){idx=i;var s=scenes[idx];sky.dataset.scene=s;target.aurora=s==='aurora'?1:0;target.rays=s==='sun'?1:0;clouds.style.opacity=(s==='clouds'||s==='sun')?1:0;blue.style.opacity=s==='clouds'?1:0;name.textContent=labels[s]}
+  var labels={aurora:'Kleinefy · Vancouver · aurora',rain:'Kleinefy · Vancouver · rain',snow:'Kleinefy · Vancouver · snow',clouds:'Kleinefy · Vancouver · clouds',sun:'Kleinefy · Vancouver · sun'};
+  function setScene(i){idx=i;var s=scenes[idx];sky.dataset.scene=s;var stormy=s==='rain'||s==='snow';target.aurora=(s==='aurora')?1:stormy?.45:0;target.rays=s==='sun'?1:0;target.precip=stormy?1:0;if(stormy)precip.start(s);clouds.style.opacity=(s==='clouds'||s==='sun')?1:0;blue.style.opacity=s==='clouds'?1:0;name.textContent=labels[s];var hint=$('#hint');if(hint)hint.textContent=(s==='aurora'?'An aurora.':s==='rain'?'Rain.':s==='snow'?'Snow.':s==='clouds'?'Clouds.':'Sun.')+' Point at the sky to hold it. Click it for the next.'}
   var last=0;
   function frame(t){
     var dt=Math.min(50,t-last);last=t;
     var step=dt/2500;
     levels.aurora+=Math.max(-step,Math.min(step,target.aurora-levels.aurora));
     levels.rays+=Math.max(-step,Math.min(step,target.rays-levels.rays));
+    levels.precip+=Math.max(-step,Math.min(step,target.precip-levels.precip));
     if(onScreen&&document.visibilityState==='visible'){
       if(au&&levels.aurora>0)au.draw(t/1000);else if(au)au.draw(t/1000);
       if(ry)ry.draw(t/1000);
+      precip.draw(dt,levels.precip,isDark());
       if(!hover){elapsed+=dt;if(elapsed>=10000){elapsed=0;setScene((idx+1)%scenes.length)}}
     }
     if(!reduce)requestAnimationFrame(frame);
@@ -749,7 +784,7 @@ $$('[data-scramble]').forEach(function(a){var t=a.textContent;a.addEventListener
 (function(){
   $$('[data-pix]').forEach(function(m){
     var g=document.createElement('div');g.className='pix';
-    for(var i=0;i<24;i++){var c=document.createElement('i');var v=Math.sin((i+1)*91.7)*10000;v=v-Math.floor(v);c.style.transitionDelay=Math.round(v*900)+'ms';g.appendChild(c)}
+    for(var i=0;i<24;i++){var c=document.createElement('i');var col=i%6,row=Math.floor(i/6);var v=Math.sin((i+1)*91.7)*10000;v=v-Math.floor(v);c.style.transitionDelay=Math.round(((col+row)/8)*700+v*220)+'ms';g.appendChild(c)}
     m.appendChild(g);
     new IntersectionObserver(function(e,io){if(!e[0].isIntersecting)return;io.disconnect();m.classList.add('play');setTimeout(function(){g.remove()},1400)},{threshold:.35}).observe(m);
   });
@@ -782,6 +817,53 @@ $$('[data-scramble]').forEach(function(a){var t=a.textContent;a.addEventListener
   cyl.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch')hover=true});cyl.addEventListener('pointerleave',function(){hover=false});
   cyl.tabIndex=0;cyl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){offset=Math.round(offset)+1;auto=false}if(e.key==='ArrowLeft'){offset=Math.round(offset)-1;auto=false}});
   fit();addEventListener('resize',fit);requestAnimationFrame(tick);
+})();
+
+/* ascii hands: two hands drawn in code, blurred, sampled into type. Revealed from the centre, warmed by the pointer. */
+(function(){
+  var host=$('#ascii'),cv=$('canvas',host),ctx=cv.getContext('2d');
+  var CH=' .:-=+*#%@',cell=7,LH=1.0,cols=0,rows=0,grid=null,born=null,dpr=1,W=0,H=0,t0=0,playing=false,px=-1,py=-1,hover=false;
+  function hand(c,w,h,mirror){
+    c.save();if(mirror){c.translate(w,0);c.scale(-1,1)}
+    c.fillStyle='#fff';c.strokeStyle='#fff';c.lineCap='round';c.filter='blur('+Math.max(1,Math.round(h*.012))+'px)';
+    // forearm, rising from the bottom corner
+    c.beginPath();c.moveTo(-w*.03,h*1.08);c.lineTo(w*.10,h*1.08);c.lineTo(w*.255,h*.70);c.lineTo(w*.185,h*.645);c.closePath();c.fill();
+    // palm, tilted towards the centre
+    c.beginPath();c.ellipse(w*.265,h*.56,w*.062,h*.14,-.6,0,6.283);c.fill();
+    // four fingers reaching in, each slightly curved up, the index longest
+    var f=[[w*.305,h*.44,w*.475,h*.25,h*.036],[w*.325,h*.49,w*.50,h*.355,h*.036],[w*.33,h*.55,w*.49,h*.465,h*.033],[w*.32,h*.61,w*.455,h*.575,h*.03]];
+    f.forEach(function(k){c.lineWidth=k[4];c.beginPath();c.moveTo(k[0],k[1]);c.quadraticCurveTo((k[0]+k[2])/2+w*.01,(k[1]+k[3])/2-h*.045,k[2],k[3]);c.stroke()});
+    // thumb
+    c.lineWidth=h*.044;c.beginPath();c.moveTo(w*.24,h*.47);c.quadraticCurveTo(w*.27,h*.33,w*.345,h*.30);c.stroke();
+    c.restore()}
+  function build(){
+    var r=host.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=Math.round(r.width);H=Math.round(r.height);cv.width=W*dpr;cv.height=H*dpr;
+    cols=Math.floor(W/cell);rows=Math.floor(H/(cell*LH));
+    var off=document.createElement('canvas');off.width=cols*6;off.height=rows*6;var oc=off.getContext('2d');oc.fillStyle='#000';oc.fillRect(0,0,off.width,off.height);
+    hand(oc,off.width,off.height,false);hand(oc,off.width,off.height,true);
+    var small=document.createElement('canvas');small.width=cols;small.height=rows;var sc=small.getContext('2d');sc.drawImage(off,0,0,cols,rows);
+    var d=sc.getImageData(0,0,cols,rows).data;grid=new Float32Array(cols*rows);born=new Float32Array(cols*rows);
+    for(var i=0;i<cols*rows;i++){var l=d[i*4]/255;grid[i]=Math.pow(l,.8);var x=i%cols,y=Math.floor(i/cols);var dist=Math.hypot((x-cols/2)/cols,(y-rows)/rows);born[i]=dist*1100+Math.random()*500}
+  }
+  function draw(now){
+    var el=(now-t0);var fg=getComputedStyle(d).getPropertyValue('--muted-fg').trim(),hot=getComputedStyle(d).getPropertyValue('--brass').trim();
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);ctx.font='500 '+(cell*1.2)+'px '+getComputedStyle(d).getPropertyValue('--mono');ctx.textBaseline='top';
+    var radius=cell*9,done=true;
+    for(var y=0;y<rows;y++)for(var x=0;x<cols;x++){var i=y*cols+x,v=grid[i];if(v<.06)continue;
+      var age=el-born[i];if(age<0){done=false;continue}
+      var dx=x*cell-px,dy=y*cell*LH-py,dd=Math.hypot(dx,dy);var heat=hover&&dd<radius?1-dd/radius:0;
+      var level=v*(age<400?age/400:1);if(age<400)done=false;
+      var idx=Math.min(CH.length-1,Math.floor(Math.min(1,level+heat*.5)*(CH.length-1)));
+      if(heat>0&&Math.random()<heat*.35)idx=Math.max(1,Math.floor(Math.random()*CH.length));
+      ctx.fillStyle=heat>0?hot:fg;ctx.globalAlpha=(.35+.65*level)*(heat>0?.6+.4*heat:.75);
+      ctx.fillText(CH[idx],x*cell-cell*.1,y*cell*LH)}
+    ctx.globalAlpha=1;
+    if(!done||hover)requestAnimationFrame(draw);else playing=false}
+  function play(){if(!grid)build();t0=performance.now();if(!playing){playing=true;requestAnimationFrame(draw)}}
+  new IntersectionObserver(function(e,io){if(!e[0].isIntersecting)return;io.disconnect();play()},{threshold:.3}).observe(host);
+  var rs;addEventListener('resize',function(){clearTimeout(rs);rs=setTimeout(function(){if(grid){build();t0=performance.now()-6000;if(!playing){playing=true;requestAnimationFrame(draw)}}},200)});
+  host.addEventListener('pointermove',function(e){var r=host.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;hover=true;if(!playing&&grid){playing=true;t0=performance.now()-5000;requestAnimationFrame(draw)}});
+  host.addEventListener('pointerleave',function(){hover=false});
 })();
 
 /* handwritten quote */
