@@ -44,12 +44,15 @@ function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
   var bar=$('#bar'),btns=$$('button',bar),timer=null;
   function show(){clearTimeout(timer);bar.classList.add('open')}
   function hide(){clearTimeout(timer);timer=setTimeout(function(){bar.classList.remove('open');btns.forEach(function(b){b.classList.remove('lit')})},90)}
-  bar.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch')show()});
+  var hold=null;
+  bar.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;var el=document.elementFromPoint(e.clientX,e.clientY);var b=el&&el.closest('button');hold={x:e.clientX,b:b};show()});
+  bar.addEventListener('pointermove',function(e){if(hold&&Math.abs(e.clientX-hold.x)>24)hold=null});
+  bar.heldItem=function(b){return hold&&hold.b&&hold.b!==b};
   bar.addEventListener('pointerleave',function(e){if(e.pointerType!=='touch')hide()});
   bar.addEventListener('focusin',show);bar.addEventListener('focusout',function(e){if(!bar.contains(e.relatedTarget))hide()});
   var tapped=false;
   btns.forEach(function(b){
-    b.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;btns.forEach(function(x){x.classList.remove('lit')});b.classList.add('lit')});
+    b.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;if(bar.heldItem(b))return;btns.forEach(function(x){x.classList.remove('lit')});b.classList.add('lit')});
     b.addEventListener('click',function(e){
       if(matchMedia('(hover:none)').matches&&!bar.classList.contains('open')&&innerWidth>=640){tapped=true;show();return}
       var t=document.getElementById(b.dataset.to);if(t){t.scrollIntoView({block:'start'});history.replaceState(null,'','#'+b.dataset.to)}else{location.href=(bar.dataset.home||'')+'#'+b.dataset.to;return}
@@ -336,6 +339,37 @@ $$('[data-scramble]').forEach(function(a){var t=a.textContent;a.addEventListener
     },{threshold:.4});
     h.style.opacity='0';io.observe(h);
   });
+})();
+
+/* inline video: nothing is fetched until the clip is near the screen; it plays only while in view */
+(function(){
+  var vids=$$('video[data-mp4]');if(!vids.length)return;
+  function arm(v){if(v.dataset.armed)return;v.dataset.armed='1';var w=document.createElement('source');w.src=v.dataset.webm;w.type='video/webm';var m=document.createElement('source');m.src=v.dataset.mp4;m.type='video/mp4';v.appendChild(w);v.appendChild(m);v.load();
+    v.addEventListener('playing',function(){var h=v.closest('.vid');if(h)h.classList.add('ready')},{once:true});if(reduce){v.controls=true;v.closest('.vid').classList.add('ready')}}
+  var near=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){arm(e.target);near.unobserve(e.target)}})},{rootMargin:'600px 0px'});
+  var play=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(reduce)return;if(e.isIntersecting){arm(v);v.muted=true;v.play().catch(function(){})}else v.pause()})},{threshold:.25});
+  vids.forEach(function(v){near.observe(v);play.observe(v)});
+  document.addEventListener('visibilitychange',function(){vids.forEach(function(v){if(document.hidden)v.pause()})});
+})();
+
+/* nav menu: resting on Work opens a panel; pointing at an entry previews its clip */
+(function(){
+  var menu=$('#menu'),bar=$('#bar');if(!menu||!bar)return;
+  var workBtn=bar.querySelector('[data-to="work"]'),entries=$$('.ls a',menu),pv=$('#menu-video'),poster=$('#menu-poster'),c1=$('#menu-cap1'),c2=$('#menu-cap2');
+  var timer=null,cur=null;
+  function show(){if(innerWidth<640)return;clearTimeout(timer);menu.classList.add('open');requestAnimationFrame(function(){menu.classList.add('in')});bar.classList.add('open');if(!cur)preview(entries[0])}
+  function hide(){clearTimeout(timer);timer=setTimeout(function(){menu.classList.remove('in');setTimeout(function(){if(!menu.classList.contains('in')){menu.classList.remove('open');pv.pause()}},250)},140)}
+  function preview(a){if(cur===a)return;cur=a;entries.forEach(function(x){x.classList.toggle('lit',x===a)});var cap=a.dataset.cap.split('|');c1.textContent=cap[0];c2.textContent=cap[1];poster.src=a.dataset.poster;
+    pv.pause();pv.innerHTML='';if(reduce)return;var w=document.createElement('source');w.src=a.dataset.clip+'.webm';w.type='video/webm';var m=document.createElement('source');m.src=a.dataset.clip+'.mp4';m.type='video/mp4';pv.appendChild(w);pv.appendChild(m);pv.load();pv.muted=true;pv.play().catch(function(){})}
+  workBtn.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;show()});
+  workBtn.addEventListener('focus',show);
+  bar.querySelectorAll('button').forEach(function(b){if(b!==workBtn)b.addEventListener('pointerenter',function(){if(bar.heldItem&&bar.heldItem(b))return;hide()})});
+  bar.addEventListener('pointermove',function(e){var b=e.target.closest('button');if(!b||(bar.heldItem&&bar.heldItem(b)))return;if(b===workBtn)show()});
+  bar.addEventListener('pointerleave',function(e){if(e.relatedTarget&&menu.contains(e.relatedTarget))return;hide()});
+  menu.addEventListener('pointerenter',function(){show()});
+  menu.addEventListener('pointerleave',function(){hide();bar.classList.remove('open')});
+  entries.forEach(function(a){a.addEventListener('pointerenter',function(){preview(a)});a.addEventListener('focus',function(){show();preview(a)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
 })();
 
 /* booking sheet: one panel for every "Book a call" on the site */

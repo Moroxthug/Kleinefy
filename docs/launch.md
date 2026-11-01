@@ -18,3 +18,9 @@ with everything filled in, addressed to `email`.
 Confirm the domain and `hello@kleinefy.com`. Add a favicon and an Open Graph image at `assets/og.png`
 (1200×630) and point the `og:image` tags at it. Add `sitemap.xml` and `robots.txt`. Connect Search Console and a
 privacy-respecting analytics (Plausible or Umami). Host on Vercel or Cloudflare Pages with the repository as source.
+
+## Product clips
+`assets/{alimun,quoteai,prevai}.mp4` and `.webm` are scripted scroll-throughs of the live sites, recorded headless at
+1440×900, 24fps, 22 seconds, no audio. Re-record with `scratchpad/record.js` (Playwright + ffmpeg) after a product
+changes its homepage. They play muted in the stage cards, the case heroes and the Work menu preview, fetch nothing
+until near the screen, and pause off screen, in a hidden tab, and under reduced motion.

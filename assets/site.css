@@ -351,3 +351,25 @@ html.rv::view-transition-new(root){animation:rv .8s cubic-bezier(.16,1,.3,1) bot
 /* morph-in: a heading tightens out of a blur into liquid edges, once */
 .morph{filter:url(#morph-0)}
 @media(prefers-reduced-motion:reduce){.js .rv,.js .rv-l,.js .rv-r{opacity:1;translate:0;filter:none}.js .rule::before{transform:none}.js .rule i{opacity:1;rotate:0deg}.morph{filter:none}}
+
+/* inline video: a muted loop that fetches nothing until it is near, plays only in view */
+.media video,.screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:#0a0a0a}
+.media.vid,.screen.vid{position:relative}
+.media.vid::after,.screen.vid::after{content:"";position:absolute;inset:0;background:var(--secondary);opacity:1;transition:opacity .8s ease-out;pointer-events:none}
+.media.vid.ready::after,.screen.vid.ready::after{opacity:0}
+/* nav menu: the Work item opens a panel whose entries preview each product's clip */
+.nav{flex-wrap:wrap}
+.menu{position:absolute;top:calc(100% + 10px);left:50%;translate:-50% 0;width:min(760px,calc(100vw - 32px));display:none;grid-template-columns:minmax(0,240px) minmax(0,1fr);border-radius:22px;padding:8px;z-index:51;opacity:0;transition:opacity .25s var(--ease),translate .35s var(--ease)}
+.menu.open{display:grid}
+.menu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.menu.in{opacity:1}
+.menu .ls{display:flex;flex-direction:column;gap:2px;padding:8px}
+.menu .ls p{font-size:12px;color:var(--muted-fg);padding:8px 12px 6px;letter-spacing:.01em}
+.menu .ls a{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:12px;color:var(--fg);transition:background .15s}
+.menu .ls a small{color:var(--muted-fg);font-size:13px}
+.menu .ls a.lit,.menu .ls a:focus-visible{background:color-mix(in srgb,var(--muted) 80%,transparent)}
+.menu .pv{display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:16px}
+.menu .pv .fr{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:clip;background:#0a0a0a}
+.menu .pv video,.menu .pv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.menu .pv p{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted-fg)}
+@media(max-width:639px),(hover:none){.menu{display:none!important}}
