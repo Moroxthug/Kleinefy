@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>quoteAI · Kleinefy</title>
+<meta name="description" content="How Kleinefy built quoteAI, the AI quoting and job platform for Canadian trades: from a plain sentence to a signed, paid job.">
+<meta property="og:title" content="quoteAI · a Kleinefy case">
+<meta property="og:description" content="How Kleinefy built quoteAI, the AI quoting and job platform for Canadian trades: from a plain sentence to a signed, paid job.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://kleinefy.com/assets/quoteai-desktop.webp">
+<link rel="canonical" href="https://kleinefy.com/work/quoteai.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"quoteAI","url":"https://quoteai.ca/","creator":{"@type":"Organization","name":"Kleinefy Inc","url":"https://kleinefy.com/"},"description":"How Kleinefy built quoteAI, the AI quoting and job platform for Canadian trades: from a plain sentence to a signed, paid job."}</script>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <nav class="bar glass" id="bar" data-home="../index.html" aria-label="Primary">
+    <button data-to="home" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z"/></svg><span class="lab"><span>Home</span></span></button>
+    <button data-to="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg><span class="lab"><span>Work</span></span></button>
+    <button data-to="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5L22 8.9 20.6 7.5l-2.3 2.3-1.5-1.5 2.3-2.3L17.7 4.6z"/><path d="M12.6 8.4 4 17a2 2 0 1 0 3 3l8.6-8.6"/></svg><span class="lab"><span>Services</span></span></button>
+    <button data-to="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span class="lab"><span>About</span></span></button>
+    <button data-to="stack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></svg><span class="lab"><span>Stack</span></span></button>
+  </nav>
+  <button class="round glass" id="theme" type="button" aria-label="Switch between light and dark mode">
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+  <a class="xarrow" href="#contact" data-book>
+    <span class="chip" aria-hidden="true">
+      <span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span>
+      <span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span>
+    </span>
+    <span class="txt">Book a call</span>
+  </a>
+</header>
+
+<nav class="rail" id="rail" aria-label="Sections on this page">
+  <a href="#overview" data-s="overview"><i></i><b>01 · Overview</b></a>
+  <a href="#start" data-s="start"><i></i><b>02 · Starting point</b></a>
+  <a href="#built" data-s="built"><i></i><b>03 · What we built</b></a>
+  <a href="#works" data-s="works"><i></i><b>04 · How it works</b></a>
+  <a href="#now" data-s="now"><i></i><b>05 · Where it is now</b></a>
+</nav>
+
+<main>
+<section id="overview">
+  <div class="frame">
+    <div class="case-hero">
+      <p class="eyebrow" style="margin:0">Case · quoteAI</p>
+      <h1>quoteAI. A priced, branded quote in 30 seconds, for Canadian trades.</h1>
+      <ul class="tags" style="line-height:24px"><li>#AI</li><li>#SaaS</li><li>#Trades</li></ul>
+      <div class="meta"><div><b>Role</b>Product, design, engineering, go-to-market</div><div><b>Market</b>B2B SaaS · Canada · English and French</div><div><b>Status</b>Live, taking payments</div><div><b>Live at</b><a href="https://quoteai.ca" target="_blank" rel="noopener">quoteai.ca</a></div></div>
+    </div>
+    <div class="screen media big" data-pix><img src="../assets/quoteai-desktop.webp" alt="The quoteAI website" decoding="async"></div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="frame">
+    <div class="rule"><i></i><i></i></div>
+    <div class="two-col"><h2>The starting point.</h2><div class="txt"><p>A tradesperson loses the evening to quotes. Measurements in a notebook, prices in a spreadsheet from three years ago, a PDF built by hand, tax worked out province by province, then the chasing: did they get it, did they sign it, did they pay. The work is in the day; the business is in the night.</p><p>quoteAI started from one question: what if describing the job was enough? Say it in your own words, or send a photo or a voice note from the van, and get back a priced, branded quote with line items, quantities and the right GST, HST or PST for the province, in about thirty seconds.</p></div></div>
+  </div>
+</section>
+
+<section id="built">
+  <div class="frame">
+    <div class="rule"><i></i><i></i></div>
+    <div class="two-col"><h2>What we built.</h2><div class="txt"><p>The quote is the front door, and we built the whole house behind it. Incoming leads land in a kanban pipeline before they become quotes. An accepted quote becomes a job site with tasks, deadlines, team assignment, suppliers and budget against actual. Contracts and invoices generate from the quote; clients get a public invoice page and reminders go out until it is paid. Every file, client and document stays searchable in one archive.</p><p>It is bilingual, English and French, and it works over WhatsApp: a message with a description or a voice note comes back as a quote. Teams get roles and invites, dashboards for revenue, win rate and turnaround, an AI assistant inside the dashboard, and imports for existing price lists and clients. A seven-day trial, no card.</p><div class="tools"><span>Next.js</span><span>TypeScript</span><span>Postgres</span><span>Claude</span><span>WhatsApp Business API</span><span>Stripe</span><span>PDF generation</span><span>E-signature</span></div></div></div>
+    <div class="shots">
+      <div class="screen media" data-pix><img src="../assets/quoteai-s2.webp" alt="quoteAI, further down the page" loading="lazy" decoding="async"></div>
+      <div class="screen media" data-pix><img src="../assets/quoteai-mobile.webp" alt="quoteAI on a phone" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="frame">
+    <div class="rule"><i></i><i></i></div>
+    <div class="sec"><p class="eyebrow">How it works</p><h2 class="h2">The parts that matter.</h2></div>
+    <ul class="svc"><li class="card tight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h4>30 seconds to a quote.</h4><p>Plain words, a photo or a voice note in; a priced PDF with line items and quantities out, backed by your own price catalog.</p></div></li><li class="card tight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg><div><h4>Tax by province.</h4><p>GST, HST or GST plus PST, right for every province and territory, on every line.</p></div></li><li class="card tight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><div><h4>Signed, invoiced, paid.</h4><p>E-signature on the quote, invoice generated from it, reminders on schedule until the money lands.</p></div></li><li class="card tight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.2L3 21l1.8-5.4A8 8 0 1 1 21 12z"/></svg><div><h4>Works on WhatsApp.</h4><p>The app the trade already uses, in English or French, with a quote back in the same thread.</p></div></li><li class="card tight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg><div><h4>A quote becomes a job.</h4><p>Tasks, deadlines, team, suppliers and budget versus actual, linked to the original quote.</p></div></li><li class="card tight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><div><h4>The office, in a dashboard.</h4><p>Revenue, win rate, turnaround, an AI assistant, multi-user roles and imports of what you already have.</p></div></li></ul>
+    <div class="shots" style="grid-template-columns:minmax(0,1fr)"><div class="screen media" style="aspect-ratio:16/10" data-pix><img src="../assets/quoteai-s3.webp" alt="quoteAI, a product screen" loading="lazy" decoding="async"></div></div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="frame">
+    <div class="rule"><i></i><i></i></div>
+    <div class="two-col"><h2>Where it is now.</h2><div class="txt"><p>quoteAI is live across Canada with paying subscribers, and it is the product that taught us how trades actually run: from the first call to the deposit request, everything is a step that used to be retyped. The engine behind it was strong enough to launch in a second country as prevAI.</p><p>What it proved for us: that an idea with a clear job to do, built end to end, finds its users. And that the unglamorous parts, tax tables, reminders, imports, are what make people stay.</p><div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:8px"><a class="xarrow" href="https://quoteai.ca" target="_blank" rel="noopener"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"><svg class="dc" style="--o:1" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.5" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.3" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg><svg class="dc" style="--o:.15" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span></span><span class="txt">Visit quoteai.ca<span class="sr"> (opens in a new tab)</span></span></a><a class="metal" href="#contact" data-book><span class="rim" aria-hidden="true"></span><span class="sheen" aria-hidden="true"></span><span class="face" aria-hidden="true"></span><span class="edge" aria-hidden="true"></span><span class="in">Build something like this</span></a></div></div></div>
+    <div class="nextcase">
+      <a href="alimun.html"><small>Previous case</small><b>Alimun</b></a>
+      <a href="prevai.html" style="text-align:right"><small>Next case</small><b>prevAI</b></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="col">
+    <div class="ascii" id="ascii" aria-hidden="true"><canvas></canvas></div>
+    <figure class="hw" id="hw" data-quote="The details are not the details. They make the design." data-by="Charles Eames"></figure>
+    <div class="fl">
+      <div class="row">
+        <span class="brandmark">kleinefy</span>
+        <div class="cols">
+          <nav aria-label="Menu"><p>Menu</p><ul><li><a href="../index.html#home" data-scramble>Home</a></li><li><a href="../index.html#work" data-scramble>Work</a></li><li><a href="../index.html#services" data-scramble>Services</a></li><li><a href="../index.html#about" data-scramble>About</a></li></ul></nav>
+          <nav aria-label="Products"><p>Products</p><ul><li><a href="https://alimun.com" target="_blank" rel="noopener" data-scramble>Alimun</a></li><li><a href="https://quoteai.ca" target="_blank" rel="noopener" data-scramble>quoteAI</a></li><li><a href="https://prevai.it" target="_blank" rel="noopener" data-scramble>prevAI</a></li></ul></nav>
+          <nav aria-label="Contact"><p>Contact</p><ul><li><a href="mailto:hello@kleinefy.com" data-scramble>Email</a></li><li><a href="#contact" data-scramble data-book>Book a call</a></li></ul></nav>
+        </div>
+      </div>
+      <p class="credit">Designed and built by Kleinefy · Vancouver, BC · © 2026 Kleinefy Inc</p>
+      <p class="wm" aria-hidden="true">kleinefy</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
