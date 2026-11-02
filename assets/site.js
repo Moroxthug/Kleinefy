@@ -13,7 +13,7 @@ function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
 (function(){
   var stored=null;try{stored=localStorage.getItem('theme')}catch(e){}
   var attr=d.getAttribute('data-theme');
-  var dark=stored?stored==='dark':attr?attr==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  var dark=stored?stored==='dark':attr?attr==='dark':true;
   d.classList.toggle('dark',dark);d.classList.toggle('light',!dark);
   $('#theme').addEventListener('click',function(e){
     var next=!d.classList.contains('dark');
@@ -134,7 +134,7 @@ var RAYS='precision highp float;uniform vec2 uResolution;uniform float uTime;uni
     return {start:start,draw:draw}})();
   var name=$('#sceneName'),clouds=$('#clouds'),blue=$('#skyblue');
   var labels={aurora:'Kleinefy · Vancouver · aurora',rain:'Kleinefy · Vancouver · rain',snow:'Kleinefy · Vancouver · snow',clouds:'Kleinefy · Vancouver · clouds',sun:'Kleinefy · Vancouver · sun'};
-  function setScene(i){idx=i;var s=scenes[idx];sky.dataset.scene=s;var stormy=s==='rain'||s==='snow';target.aurora=(s==='aurora')?1:stormy?.45:0;target.rays=s==='sun'?1:0;target.precip=stormy?1:0;if(stormy)precip.start(s);clouds.style.opacity=(s==='clouds'||s==='sun')?1:0;blue.style.opacity=s==='clouds'?1:0;name.textContent=labels[s];var hint=$('#hint');if(hint)hint.textContent=(s==='aurora'?'An aurora.':s==='rain'?'Rain.':s==='snow'?'Snow.':s==='clouds'?'Clouds.':'Sun.')+' Point at the sky to hold it. Click it for the next.'}
+  function setScene(i){idx=i;var s=scenes[idx];sky.dataset.scene=s;var stormy=s==='rain'||s==='snow';target.aurora=(s==='aurora')?1:stormy?.45:0;target.rays=s==='sun'?1:0;target.precip=stormy?1:0;if(stormy)precip.start(s);clouds.style.opacity=(s==='clouds'||s==='sun')?1:0;blue.style.opacity=s==='clouds'?1:0;if(name)name.textContent=labels[s];var hint=$('#hint');if(hint)hint.textContent=(s==='aurora'?'An aurora.':s==='rain'?'Rain.':s==='snow'?'Snow.':s==='clouds'?'Clouds.':'Sun.')+' Point at the sky to hold it. Click it for the next.'}
   var last=0;
   function frame(t){
     var dt=Math.min(50,t-last);last=t;
@@ -223,10 +223,10 @@ $$('[data-scramble]').forEach(function(a){var t=a.textContent;a.addEventListener
 
 /* cylinder carousel */
 (function(){
-  var cyl=$('#cyl'),cap=$('#cylcap');if(!cyl)return;
+  var cyl=$('#cyl'),cap=$('#cylcap');if(!cyl)return;if(!cap){cap=document.createElement('p');cap.className='cap';cyl.appendChild(cap)}
   var items=[['Next.js','web apps'],['React','interfaces'],['TypeScript','everything'],['Node','services'],['Postgres','data'],['Supabase','auth and storage'],['Stripe','payments'],['WhatsApp API','messaging'],['Claude','AI features'],['Swift','iOS'],['Vercel','hosting'],['n8n','automation']];
   var N=items.length,offset=0,vel=0,dragging=false,lastX=0,lastT=0,hover=false,auto=true;
-  var els=items.map(function(it){var e=document.createElement('div');e.className='it';e.innerHTML='<span>'+it[0]+'<small>'+it[1]+'</small></span>';cyl.insertBefore(e,cap);return e});
+  var pre=$$('.it',cyl);var els=pre.length?pre:items.map(function(it){var e=document.createElement('div');e.className='it';e.innerHTML='<span>'+it[0]+'<small>'+it[1]+'</small></span>';cyl.insertBefore(e,cap);return e});if(pre.length){N=pre.length;items=pre.map(function(e){return [e.getAttribute('aria-label')||'','']})}
   var size=160,slot,half,arc=70,minScale=.55;
   function fit(){var w=cyl.clientWidth;var visible=w<640?3:w<1000?5:7;slot=w/visible;size=Math.min(160,slot*.9);half=visible/2+.5;els.forEach(function(e){e.style.width=e.style.height=size+'px'})}
   function wrap(r){while(r>N/2)r-=N;while(r<-N/2)r+=N;return r}
@@ -251,6 +251,99 @@ $$('[data-scramble]').forEach(function(a){var t=a.textContent;a.addEventListener
   function tick2(t){last=t}
   new IntersectionObserver(function(e){seen=e[0].isIntersecting;if(seen&&!running){running=true;last=performance.now();requestAnimationFrame(tick)}}).observe(cyl);
   fit();addEventListener('resize',fit);render();
+})();
+
+/* reveals */
+(function(){
+  var sel='.card,.stage,.brief,.two-col .txt,.nextcase a,.contact .box,.h2,.show h3,.case-hero h1,.wall .t,.statement';
+  var els=$$(sel);
+  // siblings get a beat each
+  var groups=new Map();
+  els.forEach(function(el){if(el.classList.contains('stage')){el.classList.add('rv-l');return}if(el.classList.contains('brief')){el.classList.add('rv-r');return}
+    el.classList.add('rv');var par=el.parentElement;var n=groups.get(par)||0;el.style.setProperty('--i',Math.min(n,5));groups.set(par,n+1)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+  $$('.rv,.rv-l,.rv-r').forEach(function(el){io.observe(el)});
+})();
+
+/* inline video: nothing is fetched until the clip is near the screen; it plays only while in view */
+(function(){
+  var vids=$$('video[data-mp4]');if(!vids.length)return;
+  function arm(v){if(v.dataset.armed)return;v.dataset.armed='1';var w=document.createElement('source');w.src=v.dataset.webm;w.type='video/webm';var m=document.createElement('source');m.src=v.dataset.mp4;m.type='video/mp4';v.appendChild(w);v.appendChild(m);v.load();
+    v.addEventListener('playing',function(){var h=v.closest('.vid');if(h)h.classList.add('ready')},{once:true});if(reduce){v.controls=true;v.closest('.vid').classList.add('ready')}}
+  var near=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){arm(e.target);near.unobserve(e.target)}})},{rootMargin:'600px 0px'});
+  var play=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(reduce)return;if(e.isIntersecting){arm(v);v.muted=true;v.play().catch(function(){})}else v.pause()})},{threshold:.25});
+  vids.forEach(function(v){near.observe(v);play.observe(v)});
+  document.addEventListener('visibilitychange',function(){vids.forEach(function(v){if(document.hidden)v.pause()})});
+})();
+
+/* nav menu: resting on Work opens a panel; pointing at an entry previews its clip */
+(function(){
+  var menu=$('#menu'),bar=$('#bar');if(!menu||!bar)return;
+  var workBtn=bar.querySelector('[data-to="work"]'),entries=$$('.ls a',menu),pv=$('#menu-video'),poster=$('#menu-poster'),c1=$('#menu-cap1'),c2=$('#menu-cap2');
+  var timer=null,cur=null;
+  function show(){if(innerWidth<640)return;clearTimeout(timer);menu.classList.add('open');requestAnimationFrame(function(){menu.classList.add('in')});bar.classList.add('open');if(!cur)preview(entries[0])}
+  function hide(){clearTimeout(timer);timer=setTimeout(function(){menu.classList.remove('in');setTimeout(function(){if(!menu.classList.contains('in')){menu.classList.remove('open');pv.pause()}},250)},140)}
+  function preview(a){if(cur===a)return;cur=a;entries.forEach(function(x){x.classList.toggle('lit',x===a)});var cap=a.dataset.cap.split('|');c1.textContent=cap[0];c2.textContent=cap[1];poster.src=a.dataset.poster;
+    pv.pause();pv.innerHTML='';if(reduce)return;var w=document.createElement('source');w.src=a.dataset.clip+'.webm';w.type='video/webm';var m=document.createElement('source');m.src=a.dataset.clip+'.mp4';m.type='video/mp4';pv.appendChild(w);pv.appendChild(m);pv.load();pv.muted=true;pv.play().catch(function(){})}
+  workBtn.addEventListener('pointerenter',function(e){if(e.pointerType==='touch')return;show()});
+  workBtn.addEventListener('focus',show);
+  bar.querySelectorAll('button').forEach(function(b){if(b!==workBtn)b.addEventListener('pointerenter',function(){if(bar.heldItem&&bar.heldItem(b))return;hide()})});
+  bar.addEventListener('pointermove',function(e){var b=e.target.closest('button');if(!b||(bar.heldItem&&bar.heldItem(b)))return;if(b===workBtn)show()});
+  bar.addEventListener('pointerleave',function(e){if(e.relatedTarget&&menu.contains(e.relatedTarget))return;hide()});
+  menu.addEventListener('pointerenter',function(){show()});
+  menu.addEventListener('pointerleave',function(){hide();bar.classList.remove('open')});
+  entries.forEach(function(a){a.addEventListener('pointerenter',function(){preview(a)});a.addEventListener('focus',function(){show();preview(a)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
+})();
+
+/* works filter */
+(function(){
+  var pills=$$('.pill[data-f]');if(!pills.length)return;var shows=$$('.show[data-tags]');
+  pills.forEach(function(p){p.addEventListener('click',function(){pills.forEach(function(x){x.classList.toggle('on',x===p)});var f=p.dataset.f;
+    shows.forEach(function(s){s.hidden=!(f==='all'||(' '+s.dataset.tags+' ').indexOf(' '+f+' ')>=0)})})});
+})();
+
+/* ask: the words typed here travel into the booking sheet */
+(function(){
+  var f=$('#ask');if(!f)return;var ta=$('textarea',f);
+  ta.addEventListener('input',function(){ta.style.height='auto';ta.style.height=Math.min(200,ta.scrollHeight)+'px'});
+  f.addEventListener('submit',function(e){e.preventDefault();var v=ta.value.trim();document.dispatchEvent(new CustomEvent('kleinefy:book',{detail:{idea:v}}))});
+  ta.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();f.requestSubmit()}});
+})();
+
+/* booking sheet: one panel for every "Book a call" on the site */
+(function(){
+  var dark=function(){return d.classList.contains('dark')};
+  var sheet=document.createElement('div');sheet.className='sheet';sheet.setAttribute('role','dialog');sheet.setAttribute('aria-modal','true');sheet.setAttribute('aria-labelledby','bk-title');
+  var cal=KLEINEFY.bookingUrl;
+  var right=cal?'<iframe id="bk-frame" title="Pick a time" loading="lazy" src="'+cal+(cal.indexOf('?')>0?'&':'?')+'embed=true&theme='+(dark()?'dark':'light')+'"></iframe>'
+    :'<form class="form" id="bk-form" novalidate><div class="fields"><div class="two"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div><label>Company<input name="company" autocomplete="organization"></label><label>What do you want to build?<textarea name="idea" placeholder="A website, a process that eats your week, a product in your head…"></textarea></label><label>When suits you? (Vancouver time)<select name="when"><option>Mornings</option><option>Afternoons</option><option>Evenings</option><option>Any time</option></select></label><div class="row"><button type="submit" class="xarrow"><span class="chip" aria-hidden="true"><span class="one"><svg class="dc" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg></span><span class="trail"></span></span><span class="txt">Send and pick a time</span></button><span class="note" id="bk-note">We reply within one business day with two or three slots.</span></div></div><div class="ok"><p><strong>Sent.</strong></p><p class="note" id="bk-okmsg">Thank you. We will write back within one business day.</p></div></form>';
+  sheet.innerHTML='<div class="bd"></div><div class="pn"><button class="x" type="button" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>'+
+    '<div class="lf"><p class="eyebrow" style="margin:0">Book a call</p><h2 id="bk-title">Thirty minutes. No deck.</h2><p>You talk, we ask questions, and you leave with a clear idea of what we would build, how long it takes and what it costs. If we are not the right people for it, we will say so.</p><dl><dt>Length</dt><dd>30 minutes</dd><dt>Where</dt><dd>Google Meet, or WhatsApp if you prefer</dd><dt>When</dt><dd>Usually within two business days</dd><dt>Or write</dt><dd><span style="user-select:all">'+KLEINEFY.email+'</span></dd></dl></div>'+
+    '<div class="rt">'+right+'</div></div>';
+  document.body.appendChild(sheet);
+  var lastFocus=null;
+  function open(){lastFocus=document.activeElement;sheet.classList.add('open');document.body.style.overflow='hidden';var f=sheet.querySelector('input,iframe,button.x');if(f)setTimeout(function(){f.focus()},50)}
+  function close(){sheet.classList.remove('open');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-book]');if(!a)return;e.preventDefault();open()});
+  document.addEventListener('kleinefy:book',function(e){open();var t=sheet.querySelector('[name=idea]');if(t&&e.detail.idea)t.value=e.detail.idea});
+  sheet.querySelector('.bd').addEventListener('click',close);sheet.querySelector('.x').addEventListener('click',close);
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&sheet.classList.contains('open'))close()});
+  var form=$('#bk-form');
+  if(form){
+    var trail=form.querySelector('.trail');for(var i=0;i<5;i++){trail.innerHTML+='<svg class="dc" style="--o:'+[1,.75,.5,.3,.15][i]+'" viewBox="0 0 24 24"><circle cx="6" cy="18" r="1.9"/><circle cx="10.5" cy="13.5" r="1.9"/><circle cx="15" cy="9" r="1.9"/><circle cx="17.5" cy="6.5" r="1.9"/><circle cx="11" cy="6.5" r="1.9"/><circle cx="17.5" cy="13" r="1.9"/></svg>'}
+    form.addEventListener('submit',function(e){e.preventDefault();
+      var f=new FormData(form),o={};f.forEach(function(v,k){o[k]=String(v).trim()});var note=$('#bk-note');
+      if(!o.name||!o.email||o.email.indexOf('@')<1){note.textContent='Add your name and a working email so we can reply.';return}
+      o.page=location.href;
+      if(KLEINEFY.formEndpoint){note.textContent='Sending…';
+        fetch(KLEINEFY.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)}).then(function(r){if(!r.ok)throw 0;form.classList.add('sent')}).catch(function(){note.textContent='That did not go through. Write to '+KLEINEFY.email+' instead.'});
+      }else{
+        var body='Name: '+o.name+'\nEmail: '+o.email+'\nCompany: '+(o.company||'-')+'\nWhen: '+o.when+'\n\n'+(o.idea||'');
+        location.href='mailto:'+KLEINEFY.email+'?subject='+encodeURIComponent('Book a call · '+o.name)+'&body='+encodeURIComponent(body);
+        $('#bk-okmsg').textContent='Your mail app should have opened with everything filled in. If it did not, write to '+KLEINEFY.email+'.';form.classList.add('sent')}
+    });
+  }
 })();
 
 /* handwritten quote */
