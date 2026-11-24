@@ -98,13 +98,14 @@ and status badges.
 
 | Sign | Fix |
 |---|---|
-| Anything that animates on page load | Make it static until the reader acts or scrolls it into view |
-| Fade-and-rise on every section | Pick at most one reveal that explains something |
+| Anything that animates on page load beyond the opening screen's one entrance, or an entrance over about 1.5 seconds | Keep one short entrance for the hero and let the rest wait for the reader |
+| Identical fade-and-rise on every element at once | Stagger siblings and keep reveals for blocks that enter the screen |
+| Screen recordings that play by themselves | Use sharp screenshots in a sticky frame that changes as the reader scrolls |
 | Pulse, ping or breathing glow on something that is not live | Make it static |
 | A loop that keeps running off screen | Pause it with an IntersectionObserver |
 | Missing `prefers-reduced-motion` handling | Make everything rest under reduce |
 | `transition: all`, or hover scale on cards | Transition the named properties and change surface by one step |
-| Springs, overshoot, parallax, smooth-scroll hijacking | Use one `--ease` curve and native scrolling |
+| Springs, overshoot, free-running parallax, smooth-scroll hijacking | Use the house curves and native scrolling |
 | Animating width, height, top or left | Animate transform and opacity |
 | An effect library pulled in | Write it by hand in our tokens |
 

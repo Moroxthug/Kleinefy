@@ -12,8 +12,9 @@ Write in prose. A table is fine for data.
 
 No eyebrow labels, grid backgrounds, gradient glows, "numbered pillars", italic-serif accent words, stock stat bands, or
 other agency-template furniture. The reference for taste is poulo.site and its component library: system type, one grey
-scale, one accent, motion only as a response to the reader (hover, scroll into view, pointer), everything pauses off
-screen and respects reduced motion.
+scale, one accent. Motion responds to the reader (hover, scroll into view, scroll position, pointer), plus one short
+entrance sequence for the opening screen on load, under about 1.5 seconds. Everything pauses off screen and respects
+reduced motion.
 
 Type is the system face (-apple-system, SF Pro, then Segoe/Roboto), 16px/24px body, letter-spacing -0.02em, 600 for
 headings. Palette: graphite ink #15171c, warm hairlines, brass #b5652d as the single accent, mirrored dark mode.

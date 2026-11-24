@@ -6,21 +6,21 @@
 <title>Kleinefy, a software studio in Vancouver</title>
 <meta name="description" content="Kleinefy designs, builds and runs websites, automations, CRM and ERP systems and apps. Three products of our own: Alimun, quoteAI and prevAI.">
 <meta name="robots" content="noindex">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light')}}catch(e){}</script>
+<script>(function(d){d.classList.add('js');try{if(localStorage.getItem('theme')==='light'){d.classList.remove('dark');d.classList.add('light')}}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion')})(document.documentElement)</script>
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="stylesheet" href="draft.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="topbar">
+<header class="topbar" id="topbar">
   <div class="k-wrap topbar-in">
     <a class="mark" href="#top" aria-label="Kleinefy, back to top">kleinefy</a>
     <nav aria-label="Main">
       <ul class="k-menu">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#work" data-scramble>Work</a></li>
+        <li><a href="#services" data-scramble>Services</a></li>
+        <li><a href="#about" data-scramble>About</a></li>
       </ul>
     </nav>
     <div class="topbar-end">
@@ -30,176 +30,206 @@
       <a class="btn btn-accent" href="#contact">Book a call</a>
     </div>
   </div>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
 </header>
 
 <main id="main">
-  <section class="opening k-wrap" id="top" aria-labelledby="hero-h">
-    <h1 id="hero-h">We build what we design, and we run what we build.</h1>
-    <p class="intro">Kleinefy is a software studio in Vancouver. We make websites, automations, CRM and ERP systems and apps
-      for companies, make them visible on Google and in AI answers, and stay until they earn. Three products of our own
-      are the proof.</p>
-    <div class="actions">
-      <a class="btn btn-accent" href="#contact">Book a call</a>
-      <a class="btn" href="#work">See the work</a>
+  <section class="opening" id="top" aria-labelledby="hero-h">
+    <div class="k-wrap opening-text">
+      <h1 id="hero-h" data-words>We build what we design, and we run what we build.</h1>
+      <p class="intro enter" style="--d:1">Kleinefy is a software studio in Vancouver. We make websites, automations, CRM and
+        ERP systems and apps for companies, make them visible on Google and in AI answers, and stay until they earn.
+        Three products of our own are the proof.</p>
+      <div class="actions enter" style="--d:2">
+        <a class="btn btn-accent magnet" href="#contact">Book a call</a>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+    </div>
+    <div class="deck-wrap" id="deckWrap">
+      <div class="deck" id="deck">
+        <a class="dcard c-left" href="#alimun" aria-label="Alimun, an online language school">
+          <img src="../assets/tour/alimun-1.webp" alt="" width="1440" height="900">
+          <span class="card-cap"><b>Alimun</b> Online language school</span>
+        </a>
+        <a class="dcard c-right" href="#prevai" aria-label="prevAI, quoting for Italian artisans">
+          <img src="../assets/tour/prevai-1.webp" alt="" width="1440" height="900">
+          <span class="card-cap"><b>prevAI</b> Preventivi e cantieri, Italia</span>
+        </a>
+        <a class="dcard c-mid" href="#quoteai" aria-label="quoteAI, quoting for Canadian trades">
+          <img src="../assets/tour/quoteai-1.webp" alt="" width="1440" height="900">
+          <span class="card-cap"><b>quoteAI</b> Quoting and jobs for Canadian trades</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <section class="work" id="work" aria-labelledby="work-h">
-    <div class="k-wrap">
-      <h2 id="work-h">Products we designed, built and run</h2>
-      <p class="sub">Each one started as a sentence. Below it, the product answering that sentence, recorded from the
-        live site.</p>
+    <div class="k-wrap work-head">
+      <h2 id="work-h" data-words>Products we designed, built and run</h2>
+      <p class="sub reveal">Three products with paying users. Scroll through each one, screen by screen, from the live
+        site.</p>
     </div>
 
-    <article class="case k-wrap" aria-labelledby="c-alimun">
-      <div class="case-head">
-        <h3 id="c-alimun"><img class="logo" src="../assets/logos/alimun.png" alt="" width="28" height="28">Alimun</h3>
-        <p>A language school that lives online, from the brand up.</p>
-      </div>
-      <figure class="shot">
-        <p class="req"><span class="sr">Request: </span>Book my next German B1 class, Tuesday at 18:00</p>
-        <div class="k-screen">
-          <video muted playsinline loop preload="none" poster="../assets/alimun-desktop.webp" width="1600" height="1000" aria-label="Recording of alimun.com">
-            <source src="../assets/alimun.webm" type="video/webm"><source src="../assets/alimun.mp4" type="video/mp4">
-          </video>
+    <article class="case k-wrap" id="alimun" aria-labelledby="c-alimun" data-case>
+      <div class="case-media">
+        <div class="browser reveal">
+          <div class="chrome"><span class="addr">alimun.com</span><span class="steps" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+          <div class="view">
+            <img class="on" src="../assets/tour/alimun-1.webp" alt="The Alimun home page" width="1440" height="900">
+            <img src="../assets/tour/alimun-2.webp" alt="Alimun class plans by group size" width="1440" height="900" loading="lazy">
+            <img src="../assets/tour/alimun-3.webp" alt="The Alimun student dashboard" width="1440" height="900" loading="lazy">
+            <img src="../assets/tour/alimun-4.webp" alt="The Alimun AI tutor" width="1440" height="900" loading="lazy">
+          </div>
         </div>
-        <figcaption>alimun.com</figcaption>
-      </figure>
-      <div class="case-body">
-        <p>We built Alimun from nothing: the name, the illustrated world, the website and the platform behind it, where
-          students book live classes with a teacher, hand in homework that gets graded, drill flashcards and sit mock
-          exams, from A1 to C2.</p>
-        <dl class="facts">
-          <div><dt>Market</dt><dd>B2C, education</dd></div>
-          <div><dt>Languages</dt><dd>English and German</dd></div>
-          <div><dt>Our role</dt><dd>Brand, product design, engineering, operations</dd></div>
-        </dl>
-        <ul class="points">
-          <li><h4>A brand from zero</h4><p>Name, voice, colour and a cast of illustrated animals that students recognise from the first lesson.</p></li>
-          <li><h4>Live classes, scheduled</h4><p>Fixed groups and fixed days, booked, reminded and joined from one screen.</p></li>
-          <li><h4>Homework, graded</h4><p>Every exercise comes back with a grade, strengths and what to improve.</p></li>
-          <li><h4>An AI tutor for pronunciation</h4><p>Students speak, the tutor listens and corrects, between the classes.</p></li>
-        </ul>
+        <div class="phone reveal"><img src="../assets/alimun-mobile.webp" alt="Alimun on a phone" width="640" height="1385" loading="lazy"></div>
+      </div>
+      <div class="case-text">
+        <header class="case-head reveal">
+          <h3 id="c-alimun"><img class="logo" src="../assets/logos/alimun.png" alt="" width="28" height="28">Alimun</h3>
+          <p class="case-line">A language school that lives online, from the brand up.</p>
+          <p>We built Alimun from nothing: the name, the illustrated world, the website and the platform behind it, where
+            students book live classes with a teacher, hand in homework that gets graded, drill flashcards and sit mock
+            exams, from A1 to C2.</p>
+          <dl class="facts">
+            <div><dt>Market</dt><dd>B2C, education</dd></div>
+            <div><dt>Languages</dt><dd>English and German</dd></div>
+            <div><dt>Our role</dt><dd>Brand, product design, engineering, operations</dd></div>
+          </dl>
+        </header>
+        <ol class="points">
+          <li data-step="0"><h4>A brand from zero</h4><p>Name, voice, colour and a cast of illustrated animals that students recognise from the first lesson.</p></li>
+          <li data-step="1"><h4>Live classes, scheduled</h4><p>Fixed groups and fixed days, booked, reminded and joined from one screen.</p></li>
+          <li data-step="2"><h4>Homework, graded</h4><p>Every exercise comes back with a grade, strengths and what to improve.</p></li>
+          <li data-step="3"><h4>An AI tutor for pronunciation</h4><p>Students speak, the tutor listens and corrects, between the classes.</p></li>
+        </ol>
         <a class="more" href="../work/alimun.html">Read the Alimun case</a>
       </div>
     </article>
 
-    <article class="case k-wrap" aria-labelledby="c-quoteai">
-      <div class="case-head">
-        <h3 id="c-quoteai"><img class="logo" src="../assets/logos/quoteai.png" alt="" width="28" height="28">quoteAI</h3>
-        <p>A priced, branded quote in 30 seconds, for Canadian trades.</p>
-      </div>
-      <figure class="shot">
-        <p class="req"><span class="sr">Request: </span>Repaint two bedrooms and a hallway in Toronto, two coats</p>
-        <div class="k-screen">
-          <video muted playsinline loop preload="none" poster="../assets/quoteai-desktop.webp" width="1600" height="1000" aria-label="Recording of the quoteAI site">
-            <source src="../assets/quoteai.webm" type="video/webm"><source src="../assets/quoteai.mp4" type="video/mp4">
-          </video>
+    <article class="case k-wrap" id="quoteai" aria-labelledby="c-quoteai" data-case>
+      <div class="case-media">
+        <div class="browser reveal">
+          <div class="chrome"><span class="addr">quoteai.ca</span><span class="steps" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+          <div class="view">
+            <img class="on" src="../assets/tour/quoteai-1.webp" alt="The quoteAI home page with a priced quote" width="1440" height="900">
+            <img src="../assets/tour/quoteai-2.webp" alt="A quoteAI quote with line items and tax" width="1440" height="900" loading="lazy">
+            <img src="../assets/tour/quoteai-3.webp" alt="An accepted quote becoming a job site in quoteAI" width="1440" height="900" loading="lazy">
+            <img src="../assets/tour/quoteai-4.webp" alt="quoteAI invoices and the WhatsApp flow" width="1440" height="900" loading="lazy">
+          </div>
         </div>
-        <figcaption>quoteAI</figcaption>
-      </figure>
-      <div class="case-body">
-        <p>Describe the job in your own words and quoteAI returns a priced, branded quote with line items and GST/HST by
-          province. Then it runs the rest of the path: leads, contracts, invoices and payment, in English and French,
-          even from WhatsApp.</p>
-        <dl class="facts">
-          <div><dt>Market</dt><dd>B2B SaaS, Canada</dd></div>
-          <div><dt>Languages</dt><dd>English and French</dd></div>
-          <div><dt>Our role</dt><dd>Product, design, engineering, go-to-market</dd></div>
-        </dl>
-        <ul class="points">
-          <li><h4>30 seconds to a quote</h4><p>Plain words in, a priced PDF with line items and quantities out.</p></li>
-          <li><h4>Tax by province</h4><p>GST, HST or both, right for every province and territory.</p></li>
-          <li><h4>Signed, invoiced, paid</h4><p>E-signature, invoice and payment reminders follow the quote without re-typing.</p></li>
-          <li><h4>Works on WhatsApp</h4><p>A message becomes a quote, bilingual, in the app the trade already uses.</p></li>
-        </ul>
+        <div class="phone reveal"><img src="../assets/quoteai-mobile.webp" alt="quoteAI on a phone" width="640" height="1385" loading="lazy"></div>
+      </div>
+      <div class="case-text">
+        <header class="case-head reveal">
+          <h3 id="c-quoteai"><img class="logo" src="../assets/logos/quoteai.png" alt="" width="28" height="28">quoteAI</h3>
+          <p class="case-line">A priced, branded quote in 30 seconds, for Canadian trades.</p>
+          <p>Describe the job in your own words and quoteAI returns a priced, branded quote with line items and GST/HST by
+            province. Then it runs the rest of the path: leads, contracts, invoices and payment, in English and French,
+            even from WhatsApp.</p>
+          <dl class="facts">
+            <div><dt>Market</dt><dd>B2B SaaS, Canada</dd></div>
+            <div><dt>Languages</dt><dd>English and French</dd></div>
+            <div><dt>Our role</dt><dd>Product, design, engineering, go-to-market</dd></div>
+          </dl>
+        </header>
+        <ol class="points">
+          <li data-step="0"><h4>30 seconds to a quote</h4><p>Plain words in, a priced PDF with line items and quantities out.</p></li>
+          <li data-step="1"><h4>Tax by province</h4><p>GST, HST or both, right for every province and territory.</p></li>
+          <li data-step="2"><h4>Signed, invoiced, paid</h4><p>E-signature, invoice and payment reminders follow the quote without re-typing.</p></li>
+          <li data-step="3"><h4>Works on WhatsApp</h4><p>A message becomes a quote, bilingual, in the app the trade already uses.</p></li>
+        </ol>
         <a class="more" href="../work/quoteai.html">Read the quoteAI case</a>
       </div>
     </article>
 
-    <article class="case k-wrap" aria-labelledby="c-prevai">
-      <div class="case-head">
-        <h3 id="c-prevai"><img class="logo" src="../assets/logos/prevai.png" alt="" width="28" height="28">prevAI</h3>
-        <p>The same engine, rebuilt for Italian artisans and small businesses.</p>
-      </div>
-      <figure class="shot">
-        <p class="req" lang="it"><span class="sr" lang="en">Request: </span>Tinteggiatura di due camere a Milano, due mani</p>
-        <div class="k-screen">
-          <video muted playsinline loop preload="none" poster="../assets/prevai-desktop.webp" width="1600" height="1000" aria-label="Recording of the prevAI site">
-            <source src="../assets/prevai.webm" type="video/webm"><source src="../assets/prevai.mp4" type="video/mp4">
-          </video>
+    <article class="case k-wrap" id="prevai" aria-labelledby="c-prevai" data-case>
+      <div class="case-media">
+        <div class="browser reveal">
+          <div class="chrome"><span class="addr">prevai.it</span><span class="steps" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+          <div class="view" lang="it">
+            <img class="on" src="../assets/tour/prevai-1.webp" alt="La home di prevAI con un preventivo e IVA" width="1440" height="900">
+            <img src="../assets/tour/prevai-2.webp" alt="Il flusso del preventivo su WhatsApp in prevAI" width="1440" height="900" loading="lazy">
+            <img src="../assets/tour/prevai-3.webp" alt="Un preventivo accettato diventa un cantiere in prevAI" width="1440" height="900" loading="lazy">
+            <img src="../assets/tour/prevai-4.webp" alt="La piattaforma prevAI, dal lead all'incasso" width="1440" height="900" loading="lazy">
+          </div>
         </div>
-        <figcaption>prevAI</figcaption>
-      </figure>
-      <div class="case-body">
-        <p>prevAI takes the quoting engine to Italy: <span lang="it">preventivi</span> with IVA calculated,
-          <span lang="it">cantieri, contratti, fatture</span> and <span lang="it">incasso</span>, and a quote generated
-          from a single WhatsApp voice note. Same core, second market, second language, with its documents and tax done
-          right.</p>
-        <dl class="facts">
-          <div><dt>Market</dt><dd>B2B SaaS, Italy</dd></div>
-          <div><dt>Language</dt><dd>Italian</dd></div>
-          <div><dt>Our role</dt><dd>Product, design, engineering, localisation</dd></div>
-        </dl>
-        <ul class="points">
-          <li><h4>IVA, built in</h4><p>Italian VAT rates and numbering handled in the document, not in someone's head.</p></li>
-          <li><h4>Voice note to quote</h4><p>An artisan describes the job out loud on WhatsApp and gets the preventivo back.</p></li>
-          <li><h4>Job sites, contracts, invoices</h4><p>One flow, from the first call to payment.</p></li>
-          <li><h4>Second market, same core</h4><p>One codebase, two countries, two tax systems, two languages.</p></li>
-        </ul>
+        <div class="phone reveal"><img src="../assets/prevai-mobile.webp" alt="prevAI on a phone" width="640" height="1385" loading="lazy"></div>
+      </div>
+      <div class="case-text">
+        <header class="case-head reveal">
+          <h3 id="c-prevai"><img class="logo" src="../assets/logos/prevai.png" alt="" width="28" height="28">prevAI</h3>
+          <p class="case-line">The same engine, rebuilt for Italian artisans and small businesses.</p>
+          <p>prevAI takes the quoting engine to Italy: <span lang="it">preventivi</span> with IVA calculated,
+            <span lang="it">cantieri, contratti, fatture</span> and <span lang="it">incasso</span>, and a quote generated
+            from a single WhatsApp voice note. Same core, second market, second language, with its documents and tax done
+            right.</p>
+          <dl class="facts">
+            <div><dt>Market</dt><dd>B2B SaaS, Italy</dd></div>
+            <div><dt>Language</dt><dd>Italian</dd></div>
+            <div><dt>Our role</dt><dd>Product, design, engineering, localisation</dd></div>
+          </dl>
+        </header>
+        <ol class="points">
+          <li data-step="0"><h4>IVA, built in</h4><p>Italian VAT rates and numbering handled in the document, not in someone's head.</p></li>
+          <li data-step="1"><h4>Voice note to quote</h4><p>An artisan describes the job out loud on WhatsApp and gets the <span lang="it">preventivo</span> back.</p></li>
+          <li data-step="2"><h4>Job sites, contracts, invoices</h4><p>One flow, from the first call to payment.</p></li>
+          <li data-step="3"><h4>Second market, same core</h4><p>One codebase, two countries, two tax systems, two languages.</p></li>
+        </ol>
         <a class="more" href="../work/prevai.html">Read the prevAI case</a>
       </div>
     </article>
   </section>
 
   <section class="services k-wrap" id="services" aria-labelledby="services-h">
-    <h2 id="services-h">What we build for you</h2>
-    <p class="sub">Whatever you bring, a brand, a process or an idea on a napkin, we design it, build it, make it findable
-      and connect it to the systems that make it earn. We work deepest with companies that quote, schedule, deliver and
-      bill: construction, trades, schools and services.</p>
+    <h2 id="services-h" data-words>What we build for you</h2>
+    <p class="sub reveal">Whatever you bring, a brand, a process or an idea on a napkin, we design it, build it, make it
+      findable and connect it to the systems that make it earn. We work deepest with companies that quote, schedule,
+      deliver and bill: construction, trades, schools and services.</p>
     <ul class="grid">
-      <li><h3>Websites</h3><p>Hand-coded, fast, built to rank and to turn a visit into an enquiry. Designed for your company alone.</p></li>
-      <li><h3>SEO and GEO</h3><p>Found on Google, and cited when people ask ChatGPT, Perplexity or Gemini.</p></li>
-      <li><h3>Automations</h3><p>Your tools wired into one system. A lead becomes a quote, a signature becomes a job and an invoice.</p></li>
-      <li><h3>CRM</h3><p>Every lead, conversation and deal in one place, shaped around how your team actually sells.</p></li>
-      <li><h3>ERP</h3><p>Quotes, purchasing, inventory, projects and accounting talking to each other. Legacy operations moved over one workflow at a time.</p></li>
-      <li><h3>Apps and products</h3><p>From idea to App Store. Our own products taught us the road to paying users: onboarding, payments, support, growth.</p></li>
+      <li class="reveal"><h3>Websites</h3><p>Hand-coded, fast, built to rank and to turn a visit into an enquiry. Designed for your company alone.</p></li>
+      <li class="reveal"><h3>SEO and GEO</h3><p>Found on Google, and cited when people ask ChatGPT, Perplexity or Gemini.</p></li>
+      <li class="reveal"><h3>Automations</h3><p>Your tools wired into one system. A lead becomes a quote, a signature becomes a job and an invoice.</p></li>
+      <li class="reveal"><h3>CRM</h3><p>Every lead, conversation and deal in one place, shaped around how your team actually sells.</p></li>
+      <li class="reveal"><h3>ERP</h3><p>Quotes, purchasing, inventory, projects and accounting talking to each other. Legacy operations moved over one workflow at a time.</p></li>
+      <li class="reveal"><h3>Apps and products</h3><p>From idea to App Store. Our own products taught us the road to paying users: onboarding, payments, support, growth.</p></li>
     </ul>
   </section>
 
   <section class="studio k-wrap" id="about" aria-labelledby="about-h">
-    <h2 id="about-h">A small studio that runs what it builds</h2>
+    <h2 id="about-h" data-words>A small studio that runs what it builds</h2>
     <div class="pair">
-      <p>Kleinefy is a software studio in Vancouver. We make websites, automations, CRM and ERP systems and apps for
-        companies, and we make products of our own. Running them is how we know what it takes to get from an idea to
-        paying customers.</p>
-      <p>Before we promise you anything, you can use what we made for ourselves. We stop when the work earns, not when
-        it ships.</p>
+      <p class="reveal">Kleinefy is a software studio in Vancouver. We make websites, automations, CRM and ERP systems and
+        apps for companies, and we make products of our own. Running them is how we know what it takes to get from an
+        idea to paying customers.</p>
+      <p class="reveal">Before we promise you anything, you can use what we made for ourselves. We stop when the work
+        earns, not when it ships.</p>
     </div>
-    <table class="stack">
-      <caption>What we build with</caption>
-      <thead><tr><th scope="col">Tool</th><th scope="col">Used for</th></tr></thead>
-      <tbody>
-        <tr><td>Next.js and React</td><td>Web apps and interfaces</td></tr>
-        <tr><td>TypeScript and Node</td><td>Everything, and the services behind it</td></tr>
-        <tr><td>Postgres and Supabase</td><td>Data, auth and storage</td></tr>
-        <tr><td>Stripe</td><td>Payments</td></tr>
-        <tr><td>WhatsApp Business API</td><td>Messaging</td></tr>
-        <tr><td>Claude</td><td>AI features</td></tr>
-        <tr><td>Swift</td><td>iOS</td></tr>
-        <tr><td>Vercel</td><td>Hosting</td></tr>
-        <tr><td>n8n</td><td>Automation</td></tr>
-      </tbody>
-    </table>
+    <div class="table-scroll reveal">
+      <table class="stack">
+        <caption>What we build with</caption>
+        <thead><tr><th scope="col">Tool</th><th scope="col">Used for</th></tr></thead>
+        <tbody>
+          <tr><td>Next.js and React</td><td>Web apps and interfaces</td></tr>
+          <tr><td>TypeScript and Node</td><td>Everything, and the services behind it</td></tr>
+          <tr><td>Postgres and Supabase</td><td>Data, auth and storage</td></tr>
+          <tr><td>Stripe</td><td>Payments</td></tr>
+          <tr><td>WhatsApp Business API</td><td>Messaging</td></tr>
+          <tr><td>Claude</td><td>AI features</td></tr>
+          <tr><td>Swift</td><td>iOS</td></tr>
+          <tr><td>Vercel</td><td>Hosting</td></tr>
+          <tr><td>n8n</td><td>Automation</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section class="call k-wrap" id="contact" aria-labelledby="contact-h">
-    <h2 id="contact-h">Book a call</h2>
-    <p>Thirty minutes. You describe the website you want, the process that eats your week or the product in your head.
-      We tell you what we would build, how long it takes and what it costs.</p>
-    <div class="actions">
-      <a class="btn btn-accent" href="mailto:hello@kleinefy.com?subject=Call%20with%20Kleinefy">Email to book a call</a>
-      <a class="plain" href="mailto:hello@kleinefy.com">hello@kleinefy.com</a>
+    <h2 id="contact-h" data-words>Book a call</h2>
+    <p class="reveal">Thirty minutes. You describe the website you want, the process that eats your week or the product in
+      your head. We tell you what we would build, how long it takes and what it costs.</p>
+    <div class="actions reveal">
+      <a class="btn btn-accent magnet" href="mailto:hello@kleinefy.com?subject=Call%20with%20Kleinefy">Email to book a call</a>
+      <span class="addr-copy">hello@kleinefy.com</span>
     </div>
   </section>
 </main>

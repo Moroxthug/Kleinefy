@@ -71,15 +71,21 @@ truncation. Never put a "soon" label on something that already ships. See `refer
 
 ## Motion
 
-Motion exists only as a response to the reader, through hover, press, focus, pointer movement, or scrolling a thing into
-view. Nothing moves on page load to impress anyone. Nothing loops unless it is live and on screen. Every loop or effect
-stops when it leaves the viewport, using an IntersectionObserver as `assets/site.js` already does, and rests under
-`prefers-reduced-motion: reduce`.
+Motion responds to the reader, through hover, press, focus, pointer movement, scrolling a thing into view, or scroll
+position. The one exception is a single entrance sequence for the opening screen on load: the headline, its supporting
+line and the hero visual arrive in order, all of it finished in about 1.5 seconds and never repeated. Nothing loops
+unless it is live and on screen. Every loop or effect stops when it leaves the viewport, using an IntersectionObserver
+as `assets/site.js` already does, and rests under `prefers-reduced-motion: reduce`. The page is complete at rest: a
+hidden starting state exists only behind the `motion` class that the page sets when reduced motion is off.
+
+Product visuals are sharp screenshots of the live product, not screen recordings. A product tour is a sticky frame whose
+screen changes as the reader scrolls through the points beside it, so the reader sets the pace.
 
 Before adding an animation, you should be able to say in one sentence what it tells the reader. If you can't, delete it.
 Animate only `transform`, `opacity` and `filter`, never width, height, top or left. Interface feedback takes 80–150ms on
 `--ease`. A press can scale to 0.97–0.98. Hover changes colour or surface by one step rather than scaling a card.
-Springs, overshoot and parallax are not used.
+Reveals and entrances use a long out-curve such as `cubic-bezier(.16,1,.3,1)` over 0.8–1.3 seconds. Springs, overshoot
+and free-running parallax are not used; scroll-linked movement is fine when it follows the reader's own scrolling.
 
 The effects already ported into `assets/site.js` and `site.css` are the approved vocabulary. They include the sky, the
 handwritten quote, the cylinder carousel, the pixel reveal, the theme reveal and the glass panels. A new effect must be
