@@ -92,7 +92,8 @@ and free-running parallax are not used; scroll-linked movement is fine when it f
 The effects already ported into `assets/site.js` and `site.css` are the approved vocabulary. They include the sky, the
 handwritten quote, the cylinder carousel, the pixel reveal, the theme reveal and the glass panels. A new effect must be
 hand-written in our tokens, pause off screen, respect reduced motion and keep the original author's licence notice. Never
-install GSAP, Framer Motion, Lenis, Lottie or any other effect library.
+install GSAP, Framer Motion, Lenis, Lottie or any other effect library. Three.js is the one exception, for WebGL scenes
+only, from `assets/vendor/three` (see `references/motion.md`, WebGL).
 
 ## Code
 

@@ -22,5 +22,7 @@ headings. Palette: graphite ink #15171c, warm hairlines, brass #b5652d as the si
 No invented numbers, testimonials, clients, team members or dates. If a fact is unknown, leave it out and say so in the
 reply. Real product facts come from the live products.
 
-Hand-written HTML, CSS and JavaScript. No frameworks, no UI kits, no effect libraries. When borrowing a pattern from
+Hand-written HTML, CSS and JavaScript. No frameworks, no UI kits, no effect libraries. The one exception is Three.js for
+WebGL scenes, kept at a pinned version in assets/vendor/three with its licence, loaded only on pages with a scene, and
+always with a plain HTML fallback for reduced motion or no WebGL. When borrowing a pattern from
 another library, re-implement it in our tokens and keep the author's licence notice.

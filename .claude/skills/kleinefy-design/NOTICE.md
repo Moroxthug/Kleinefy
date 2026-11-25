@@ -20,6 +20,9 @@ reference file names its source at the top and says what was changed. Keep this 
 | `references/motion.md` | oil-motion: runtime and pattern notes (https://github.com/oil-oil/oil-motion) | Lin Zhihuang | MIT |
 | `references/motion.md` | gsap-skills: ScrollTrigger notes, rebuilt without GSAP (https://github.com/greensock/gsap-skills) | GreenSock | MIT |
 
+Three.js (https://threejs.org), Copyright 2010-2024 three.js authors, MIT, is kept unmodified at
+`assets/vendor/three` with its own LICENSE file.
+
 `references/motion.md` also takes one idea, frame-rate-independent following, from motion-web by feitangyuan, which is
 CC BY-NC 4.0. No text or code from it is copied, only the published formula.
 

@@ -108,9 +108,24 @@ Theme the browser's own surfaces: `::selection` in brass, `caret-color`, focus r
 `font-variant-numeric: tabular-nums` wherever figures line up. Display tracking sits between -0.02em and -0.045em, with
 display line-height about 1.0–1.05. Source: Impeccable `craft-floor.md` and `typeset.md`.
 
+## WebGL
+
+Three.js is allowed for WebGL scenes, from `assets/vendor/three` at the pinned version there, imported as an ES module
+only on pages that have a scene. A scene earns its place by showing something real, such as the products' own screens,
+in a way a flat page cannot. It is never ambient decoration.
+
+The HTML version of the content is always in the page, and the scene replaces it only after WebGL starts, so reduced
+motion and browsers without WebGL keep the HTML. The loop renders only while the scene is on screen and the tab is
+visible, stops when every value has settled, and restarts on scroll, pointer or resize. Cap the device pixel ratio at 2
+on desktop and 1.5 on phones. Textures use `SRGBColorSpace` and shaders end with `#include <colorspace_fragment>`.
+Colours come from the page tokens through `getComputedStyle` and are refreshed when the theme changes. Hover is found by
+raycasting, and shader effects stay small: a zoom of about 0.06, an RGB split of about 0.004, a mouse lerp of about 0.08
+and a hover tween of about 0.9s on `--expo` (juliobsz `webgl.md`). Dragging uses pointer events with
+`touch-action: pan-y` so the page still scrolls vertically on phones. Every clickable object in a scene also has a real
+link in the HTML.
+
 ## Not used
 
 Some effects stay out: smooth-scroll hijacking such as Lenis, idle loops and autonomous "alive" motion, blinking or
 glancing cursors, pulsing dots, a loader in front of the content, difference-blend fixed UI (it destroys the brass), grain
-overlays, glows, AI-generated product footage, and WebGL used as decoration. If a page ever needs real-time 3D, ask first,
-because that means a library.
+overlays, glows, AI-generated product footage, and WebGL used as decoration.
