@@ -81,6 +81,8 @@ hidden starting state exists only behind the `motion` class that the page sets w
 Product visuals are sharp screenshots of the live product, not screen recordings. A product tour is a sticky frame whose
 screen changes as the reader scrolls through the points beside it, so the reader sets the pace.
 
+The techniques and their exact timings are in `references/motion.md`. Read it before building anything that moves.
+
 Before adding an animation, you should be able to say in one sentence what it tells the reader. If you can't, delete it.
 Animate only `transform`, `opacity` and `filter`, never width, height, top or left. Interface feedback takes 80–150ms on
 `--ease`. A press can scale to 0.97–0.98. Hover changes colour or surface by one step rather than scaling a card.
@@ -124,4 +126,5 @@ screenshots, take one in each mode at phone and desktop width and look at them.
 | `references/copy.md` | Interface writing: actions, errors, empty states and headlines. |
 | `references/honesty.md` | Real content, real product visuals and staging honestly. |
 | `references/accessibility.md` | The WCAG 2.2 AA floor and the manual checks. |
+| `references/motion.md` | Curves, the entrance, text and media reveals, scroll stages, pointer motion, with numbers. |
 | `NOTICE.md` | Sources and licences. Keep it with any copy of this skill. |

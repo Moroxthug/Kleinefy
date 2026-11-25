@@ -18,9 +18,9 @@
     <a class="mark" href="#top" aria-label="Kleinefy, back to top">kleinefy</a>
     <nav aria-label="Main">
       <ul class="k-menu">
-        <li><a href="#work" data-scramble>Work</a></li>
-        <li><a href="#services" data-scramble>Services</a></li>
-        <li><a href="#about" data-scramble>About</a></li>
+        <li><a href="#work" data-roll>Work</a></li>
+        <li><a href="#services" data-roll>Services</a></li>
+        <li><a href="#about" data-roll>About</a></li>
       </ul>
     </nav>
     <div class="topbar-end">
@@ -42,10 +42,14 @@
         Three products of our own are the proof.</p>
       <div class="actions enter" style="--d:2">
         <a class="btn btn-accent magnet" href="#contact">Book a call</a>
-        <a class="btn" href="#work">See the work</a>
+        <a class="btn fill" href="#work">See the work</a>
       </div>
     </div>
-    <div class="deck-wrap" id="deckWrap">
+  </section>
+
+  <section class="expand" id="expand" aria-label="Our three products">
+    <div class="expand-stage">
+      <div class="deck-wrap" id="deckWrap">
       <div class="deck" id="deck">
         <a class="dcard c-left" href="#alimun" aria-label="Alimun, an online language school">
           <img src="../assets/tour/alimun-1.webp" alt="" width="1440" height="900">
@@ -61,13 +65,17 @@
         </a>
       </div>
     </div>
+    </div>
+  </section>
+
+  <section class="say k-wrap" aria-label="How we work">
+    <p class="lit" id="lit">Before we promise you anything, you can use what we made for ourselves. We stop when the work earns, not when it ships.</p>
   </section>
 
   <section class="work" id="work" aria-labelledby="work-h">
     <div class="k-wrap work-head">
       <h2 id="work-h" data-words>Products we designed, built and run</h2>
-      <p class="sub reveal">Three products with paying users. Scroll through each one, screen by screen, from the live
-        site.</p>
+      <p class="sub reveal">Scroll through each one, screen by screen, taken from the live site.</p>
     </div>
 
     <article class="case k-wrap" id="alimun" aria-labelledby="c-alimun" data-case>
@@ -102,7 +110,7 @@
           <li data-step="2"><h4>Homework, graded</h4><p>Every exercise comes back with a grade, strengths and what to improve.</p></li>
           <li data-step="3"><h4>An AI tutor for pronunciation</h4><p>Students speak, the tutor listens and corrects, between the classes.</p></li>
         </ol>
-        <a class="more" href="../work/alimun.html">Read the Alimun case</a>
+        <a class="more" data-roll href="../work/alimun.html">Read the Alimun case</a>
       </div>
     </article>
 
@@ -138,7 +146,7 @@
           <li data-step="2"><h4>Signed, invoiced, paid</h4><p>E-signature, invoice and payment reminders follow the quote without re-typing.</p></li>
           <li data-step="3"><h4>Works on WhatsApp</h4><p>A message becomes a quote, bilingual, in the app the trade already uses.</p></li>
         </ol>
-        <a class="more" href="../work/quoteai.html">Read the quoteAI case</a>
+        <a class="more" data-roll href="../work/quoteai.html">Read the quoteAI case</a>
       </div>
     </article>
 
@@ -175,24 +183,30 @@
           <li data-step="2"><h4>Job sites, contracts, invoices</h4><p>One flow, from the first call to payment.</p></li>
           <li data-step="3"><h4>Second market, same core</h4><p>One codebase, two countries, two tax systems, two languages.</p></li>
         </ol>
-        <a class="more" href="../work/prevai.html">Read the prevAI case</a>
+        <a class="more" data-roll href="../work/prevai.html">Read the prevAI case</a>
       </div>
     </article>
   </section>
 
-  <section class="services k-wrap" id="services" aria-labelledby="services-h">
-    <h2 id="services-h" data-words>What we build for you</h2>
-    <p class="sub reveal">Whatever you bring, a brand, a process or an idea on a napkin, we design it, build it, make it
-      findable and connect it to the systems that make it earn. We work deepest with companies that quote, schedule,
-      deliver and bill: construction, trades, schools and services.</p>
-    <ul class="grid">
-      <li class="reveal"><h3>Websites</h3><p>Hand-coded, fast, built to rank and to turn a visit into an enquiry. Designed for your company alone.</p></li>
-      <li class="reveal"><h3>SEO and GEO</h3><p>Found on Google, and cited when people ask ChatGPT, Perplexity or Gemini.</p></li>
-      <li class="reveal"><h3>Automations</h3><p>Your tools wired into one system. A lead becomes a quote, a signature becomes a job and an invoice.</p></li>
-      <li class="reveal"><h3>CRM</h3><p>Every lead, conversation and deal in one place, shaped around how your team actually sells.</p></li>
-      <li class="reveal"><h3>ERP</h3><p>Quotes, purchasing, inventory, projects and accounting talking to each other. Legacy operations moved over one workflow at a time.</p></li>
-      <li class="reveal"><h3>Apps and products</h3><p>From idea to App Store. Our own products taught us the road to paying users: onboarding, payments, support, growth.</p></li>
-    </ul>
+  <section class="services" id="services" aria-labelledby="services-h">
+    <div class="track-stage">
+      <div class="k-wrap services-head">
+        <h2 id="services-h" data-words>What we build for you</h2>
+        <p class="sub reveal">Whatever you bring, a brand, a process or an idea on a napkin, we design it, build it, make it
+          findable and connect it to the systems that make it earn. We work deepest with companies that quote, schedule,
+          deliver and bill: construction, trades, schools and services.</p>
+      </div>
+      <div class="track-view">
+        <ul class="track" id="track">
+          <li><h3>Websites</h3><p>Hand-coded, fast, built to rank and to turn a visit into an enquiry. Designed for your company alone.</p></li>
+          <li><h3>SEO and GEO</h3><p>Found on Google, and cited when people ask ChatGPT, Perplexity or Gemini.</p></li>
+          <li><h3>Automations</h3><p>Your tools wired into one system. A lead becomes a quote, a signature becomes a job and an invoice.</p></li>
+          <li><h3>CRM</h3><p>Every lead, conversation and deal in one place, shaped around how your team actually sells.</p></li>
+          <li><h3>ERP</h3><p>Quotes, purchasing, inventory, projects and accounting talking to each other. Legacy operations moved over one workflow at a time.</p></li>
+          <li><h3>Apps and products</h3><p>From idea to App Store. Our own products taught us the road to paying users: onboarding, payments, support, growth.</p></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="studio k-wrap" id="about" aria-labelledby="about-h">
@@ -201,8 +215,8 @@
       <p class="reveal">Kleinefy is a software studio in Vancouver. We make websites, automations, CRM and ERP systems and
         apps for companies, and we make products of our own. Running them is how we know what it takes to get from an
         idea to paying customers.</p>
-      <p class="reveal">Before we promise you anything, you can use what we made for ourselves. We stop when the work
-        earns, not when it ships.</p>
+      <p class="reveal">Brand, product, payments, search presence and the operations behind it. We modernise legacy
+        operations without stopping them.</p>
     </div>
     <div class="table-scroll reveal">
       <table class="stack">
@@ -236,12 +250,11 @@
 
 <footer class="end">
   <div class="k-wrap end-in">
-    <p class="mark">kleinefy</p>
     <nav aria-label="Footer">
       <ul class="end-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#work" data-roll>Work</a></li>
+        <li><a href="#services" data-roll>Services</a></li>
+        <li><a href="#about" data-roll>About</a></li>
         <li><a href="../work/alimun.html">Alimun</a></li>
         <li><a href="../work/quoteai.html">quoteAI</a></li>
         <li><a href="../work/prevai.html">prevAI</a></li>
@@ -250,6 +263,7 @@
     </nav>
     <p class="fine">Designed and built by Kleinefy in Vancouver, BC. &copy; 2026 Kleinefy Inc.</p>
   </div>
+  <p class="wordmark" id="wordmark" aria-hidden="true">kleinefy</p>
 </footer>
 
 <script src="draft.js" defer></script>
