@@ -339,10 +339,9 @@ h4{font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.02em}
 .wordmark .ch.near{color:var(--brass)}
 @media(min-width:960px){.motion .track li{justify-content:flex-start}.motion .track li h3{margin-top:auto}}
 
-/* product icons sit on white tiles so they read on every product colour */
-.case-head .logo{background:#fff;padding:6px;object-fit:contain;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+/* product icons on their own transparent ground */
+.case-head .logo{background:none;padding:0;border-radius:0;object-fit:contain}
 /* the helix caption names the front product in its own accent */
 .helix-cap b{color:var(--pop,var(--fg))}
 .light .helix-cap b{color:var(--fg)}
 .helix-cap a{border-bottom-color:var(--pop,var(--brass))}
-.case-head .logo[src$=".svg"]{padding:2px}
