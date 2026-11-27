@@ -12,12 +12,14 @@ Write in prose. A table is fine for data.
 
 No eyebrow labels, grid backgrounds, gradient glows, "numbered pillars", italic-serif accent words, stock stat bands, or
 other agency-template furniture. The reference for taste is poulo.site and its component library: system type, one grey
-scale, one accent. Motion responds to the reader (hover, scroll into view, scroll position, pointer), plus one short
+scale, one brand accent. Motion responds to the reader (hover, scroll into view, scroll position, pointer), plus one short
 entrance sequence for the opening screen on load, under about 1.5 seconds. Everything pauses off screen and respects
 reduced motion.
 
 Type is the system face (-apple-system, SF Pro, then Segoe/Roboto), 16px/24px body, letter-spacing -0.02em, 600 for
-headings. Palette: graphite ink #15171c, warm hairlines, brass #b5652d as the single accent, mirrored dark mode.
+headings. Palette: graphite ink #15171c, warm hairlines, brass #b5652d as the brand accent, mirrored dark mode. Brass may
+run as a full range of tints and shades for colour fields. A product's own colours, sampled from the live product, may
+colour that product's own sections and nothing else.
 
 No invented numbers, testimonials, clients, team members or dates. If a fact is unknown, leave it out and say so in the
 reply. Real product facts come from the live products.

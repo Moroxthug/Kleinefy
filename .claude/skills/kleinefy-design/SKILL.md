@@ -30,7 +30,7 @@ to both blocks in `site.css` so the two modes stay a pair.
 | Page and surfaces | `--bg`, `--secondary`, `--muted`, `--card` | One grey scale. A raised surface is one step lighter in dark and one step darker in light. |
 | Text | `--fg`, `--muted-fg` | Two text roles. Do not add a third grey for text. |
 | Lines | `--hair`, `--border`, `--border-strong` | Warm hairlines carry structure, so reach for one before reaching for a shadow. |
-| Accent | `--brass` | The only accent. It is `#b5652d` in light and `#d9a06b` in dark. |
+| Accent | `--brass` | The brand accent. It is `#b5652d` in light and `#d9a06b` in dark, with a range of tints and shades for colour fields. |
 | Focus | `--ring` | Used for `:focus-visible` outlines. |
 | Type | `--sans`, `--mono` | `--sans` is the system stack. `--mono` is for code and tabular data only, never for labels. |
 | Motion | `--ease` | One curve for interface motion. |
@@ -39,7 +39,12 @@ Type is the system face at 16px/24px with letter-spacing -0.02em, and headings a
 and space, never from extra families. Do not import a webfont to make a page feel more designed. Keep lines under about
 75 characters.
 
-Use the brass accent once or twice per screen, on the thing that matters most there, such as the primary action, the
+Colour comes from two real sources. Brass has a full range of tints and shades (`--brass-ink` to `--brass-wash` in the
+draft), so a whole band can be brass with ink type on it. Each product's own colours are sampled from its live site and
+used only in that product's section: the page takes on the product's deep colour or pale tint while the reader is in
+it, and the product's accent marks its active states. Nothing else gets colour.
+
+Within ordinary interface, use the brass accent once or twice per screen, on the thing that matters most there, such as the primary action, the
 active item or the single highlighted series. When it appears everywhere it stops pointing at anything.
 
 Dark mode is a second design of the same system, not an inversion. Every token is re-derived for dark, every contrast
