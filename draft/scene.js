@@ -37,6 +37,12 @@ function start(){
     return new THREE.Color().setRGB(m[0]/255,m[1]/255,m[2]/255,THREE.SRGBColorSpace);
   }
   const uBg={value:tokenColor('--bg','#0a0a0a')},uLine={value:tokenColor('--border-strong','#555')};
+  const bgTarget=uBg.value.clone();
+  /* product colours come from the page's own tokens, so the scene and the HTML always agree */
+  function readVar(el,name){const v=getComputedStyle(el).getPropertyValue(name).trim();return v?new THREE.Color().setStyle(v,THREE.SRGBColorSpace):null}
+  const pops={};
+  function readPops(){document.querySelectorAll('[data-case]').forEach(c=>{pops[c.id]=readVar(c,'--pop')||uLine.value.clone()})}
+  readPops();
 
   const vert=`
     uniform float uVel,uHover,uIn;uniform vec2 uMouse;varying vec2 vUv;
@@ -49,7 +55,7 @@ function start(){
       gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);
     }`;
   const frag=`
-    uniform sampler2D uMap;uniform float uHover,uVel,uIn,uFade,uAspect,uReady;uniform vec2 uMouse;uniform vec3 uBg,uLine;varying vec2 vUv;
+    uniform sampler2D uMap;uniform float uHover,uVel,uIn,uFade,uFront,uAspect,uReady;uniform vec2 uMouse;uniform vec3 uBg,uLine,uPop;varying vec2 vUv;
     float rbox(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}
     void main(){
       vec2 c=vUv-.5;
@@ -64,8 +70,9 @@ function start(){
       col=mix(uBg,col,.25+.75*uFade);
       float sd=rbox(c*vec2(uAspect,1.),vec2(uAspect*.5,.5),.035);
       float a=1.-smoothstep(-.002,.002,sd);
-      float line=1.-smoothstep(0.,.004,abs(sd+.003));
-      col=mix(col,uLine,line*.7);
+      float w=.004+.006*uFront;
+      float line=1.-smoothstep(0.,w,abs(sd+w*.75));
+      col=mix(col,mix(uLine,uPop,max(uFront,uHover)),line*(.7+.3*uFront));
       gl_FragColor=vec4(col,a*uIn);
       #include <colorspace_fragment>
     }`;
@@ -74,7 +81,7 @@ function start(){
   const aniso=renderer.capabilities.getMaxAnisotropy();
   const geo=new THREE.PlaneGeometry(PW,PH,40,24);
   const meshes=items.map((it,i)=>{
-    const u={uMap:{value:null},uReady:{value:0},uHover:{value:0},uVel:{value:0},uIn:{value:0},uFade:{value:1},uAspect:{value:PW/PH},uMouse:{value:new THREE.Vector2(.5,.5)},uBg,uLine};
+    const u={uMap:{value:null},uReady:{value:0},uHover:{value:0},uVel:{value:0},uIn:{value:0},uFade:{value:1},uFront:{value:0},uAspect:{value:PW/PH},uMouse:{value:new THREE.Vector2(.5,.5)},uPop:{value:(pops[it.id]||uLine.value).clone()},uBg,uLine};
     const m=new THREE.Mesh(geo,new THREE.ShaderMaterial({uniforms:u,vertexShader:vert,fragmentShader:frag,transparent:true}));
     const a=i*STEP;m.position.set(Math.sin(a)*R,-i*DY,Math.cos(a)*R);m.rotation.y=a;
     m.userData={i,u,hover:0,mouse:new THREE.Vector2(.5,.5),mouseT:new THREE.Vector2(.5,.5),inT:0,inStart:0,ready:0};
@@ -98,6 +105,8 @@ function start(){
   function progress(){const r=section.getBoundingClientRect(),run=r.height-innerHeight;return run>0?Math.min(1,Math.max(0,-r.top/run)):0}
   function caption(i){
     if(i===front)return;front=i;const it=items[i];
+    section.dataset.on=it.id;
+    requestAnimationFrame(()=>{const c=readVar(section,'--case-bg');if(c)bgTarget.copy(c);need()});
     cap.classList.remove('on');
     cap.querySelector('b').textContent=it.name;cap.querySelector('span').textContent=it.alt;
     const a=cap.querySelector('a');a.href='#'+it.id;a.textContent='Go to the '+it.name+' tour';
@@ -145,10 +154,12 @@ function start(){
       ud.mouse.lerp(ud.mouseT,k(5));u.uMouse.value.copy(ud.mouse);
       if(ud.readyT){u.uReady.value+=(1-u.uReady.value)*k(6);if(u.uReady.value<.995)busy=true}
       u.uVel.value=vel;
+      const fr=Math.max(0,1-Math.abs(ud.i-f));u.uFront.value+=(fr-u.uFront.value)*k(8);
       m.getWorldPosition(v);u.uFade.value=Math.min(1,Math.max(0,(v.z+R*.2)/(R*1.2)));
     }
 
     caption(Math.max(0,Math.min(N-1,Math.round(f))));
+    uBg.value.lerp(bgTarget,k(3));if(Math.abs(uBg.value.r-bgTarget.r)+Math.abs(uBg.value.g-bgTarget.g)+Math.abs(uBg.value.b-bgTarget.b)>.002)busy=true;
     renderer.render(scene,camera);
     if(busy)need();
   }
@@ -182,7 +193,7 @@ function start(){
   canvas.addEventListener('pointercancel',()=>{dragging=false;need()});
 
   /* the theme switch changes the page tokens; the scene follows */
-  new MutationObserver(()=>{uBg.value.copy(tokenColor('--bg','#0a0a0a'));uLine.value.copy(tokenColor('--border-strong','#555'));need()}).observe(d,{attributes:true,attributeFilter:['class']});
+  new MutationObserver(()=>{uLine.value.copy(tokenColor('--border-strong','#555'));readPops();meshes.forEach(m=>m.userData.u.uPop.value.copy(pops[items[m.userData.i].id]||uLine.value));const c=readVar(section,'--case-bg');if(c){bgTarget.copy(c);uBg.value.copy(c)}need()}).observe(d,{attributes:true,attributeFilter:['class']});
 
   section.classList.add('gl');
   dispatchEvent(new Event('resize'));

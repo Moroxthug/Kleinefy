@@ -265,16 +265,16 @@ h4{font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.02em}
 :root{--brass-ink:#2a1608;--brass-deep:#7c3f16;--brass-soft:#4a3220;--brass-wash:#21170f;--on-brass:#15171c}
 .light,:root[data-theme="light"]{--brass-ink:#2a1608;--brass-deep:#7c3f16;--brass-soft:#ecd2bb;--brass-wash:#f8eee5}
 
-.work{--case-bg:var(--bg);background:var(--case-bg);transition:background-color .9s var(--out)}
+.work,.expand{--case-bg:var(--bg);background:var(--case-bg);transition:background-color .9s var(--out)}
 /* Alimun: deep teal-green and lime. quoteAI: navy and violet. prevAI: navy-teal and teal. */
-.work[data-on="alimun"]{--case-bg:#10292a}
-.work[data-on="quoteai"]{--case-bg:#121034}
-.work[data-on="prevai"]{--case-bg:#0b2228}
-.light .work[data-on="alimun"]{--case-bg:#f0f7e2}
-.light .work[data-on="quoteai"]{--case-bg:#f0edfc}
-.light .work[data-on="prevai"]{--case-bg:#e5f3f4}
-#alimun{--pop:#d0fc64}#quoteai{--pop:#a98bff}#prevai{--pop:#41c6d1}
-.light #alimun{--pop:#1e5b49}.light #quoteai{--pop:#6c2ce0}.light #prevai{--pop:#006c78}
+.work[data-on="alimun"],.expand[data-on="alimun"]{--case-bg:#10292a}
+.work[data-on="quoteai"],.expand[data-on="quoteai"]{--case-bg:#121034}
+.work[data-on="prevai"],.expand[data-on="prevai"]{--case-bg:#0b2228}
+.light .work[data-on="alimun"],.light .expand[data-on="alimun"]{--case-bg:#f0f7e2}
+.light .work[data-on="quoteai"],.light .expand[data-on="quoteai"]{--case-bg:#f0edfc}
+.light .work[data-on="prevai"],.light .expand[data-on="prevai"]{--case-bg:#e5f3f4}
+#alimun,.expand[data-on="alimun"]{--pop:#d0fc64}#quoteai,.expand[data-on="quoteai"]{--pop:#a98bff}#prevai,.expand[data-on="prevai"]{--pop:#41c6d1}
+.light #alimun,.light .expand[data-on="alimun"]{--pop:#1e5b49}.light #quoteai,.light .expand[data-on="quoteai"]{--pop:#6c2ce0}.light #prevai,.light .expand[data-on="prevai"]{--pop:#006c78}
 .case-media{background:var(--case-bg,var(--bg))}
 @media(min-width:960px){.case-media{background:none}}
 .steps i.on{background:var(--pop,var(--brass))}
@@ -338,3 +338,11 @@ h4{font-size:18px;line-height:26px;font-weight:600;letter-spacing:-.02em}
 .wordmark .ch{transition:translate .6s var(--expo),color .4s var(--out)}
 .wordmark .ch.near{color:var(--brass)}
 @media(min-width:960px){.motion .track li{justify-content:flex-start}.motion .track li h3{margin-top:auto}}
+
+/* product icons sit on white tiles so they read on every product colour */
+.case-head .logo{background:#fff;padding:6px;object-fit:contain;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+/* the helix caption names the front product in its own accent */
+.helix-cap b{color:var(--pop,var(--fg))}
+.light .helix-cap b{color:var(--fg)}
+.helix-cap a{border-bottom-color:var(--pop,var(--brass))}
+.case-head .logo[src$=".svg"]{padding:2px}
