@@ -18,7 +18,7 @@ function start(){
   /* the screens come from the tours further down, with their real alt text and product */
   const items=[...document.querySelectorAll('[data-case] .view img')].map(im=>{
     const c=im.closest('[data-case]');
-    return {src:im.getAttribute('src'),alt:im.alt,name:c.querySelector('h3').textContent.trim(),id:c.id};
+    return {src:im.getAttribute('src'),alt:im.alt,name:c.querySelector('h3 img').alt,id:c.id};
   });
   const N=items.length;if(!N)return;
 
